@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  .home,
+  .unilist,
+  .aboutus,
+  .userprofile,
+  .login {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  
+  .unilist {
+    color: #000;
+    font-size: 100px;
+  }
+  
+  .aboutus {
+    color: #000;
+    font-size: 100px;
+  }
+
+  .userprofile {
+    color: #000;
+    font-size: 100px;
+  }
+  
+  .login {
+    color: #000;
+    font-size: 100px;
+  }
