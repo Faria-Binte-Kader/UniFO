@@ -1,0 +1,145 @@
+.container {
+  width: 100%;
+ height: 100%;
+ background: url('../../assets/background.png') center center/cover no-repeat;
+ padding: 20px;
+}
+
+.usertype{
+  color: #595959;
+  display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 232, 236) 0%,
+    rgb(39, 176, 255) 100%)
+}
+.select{
+  align-self: start;
+  width: 80%;
+  margin-bottom: 1rem;
+  margin-left: 70px;
+  
+}
+.signup-content {
+    margin: 100px auto;
+    width: 800px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 600px;
+    display: grid;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  
+  .signupform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signupform h1 {
+    font-size: 1rem;
+    text-align: start;
+    width: 80%;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .signupinputs {
+    margin-bottom: 0.5rem;
+    width: 80%;
+  }
+  
+  .signupinputs p {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #f00e0e;
+  }
+
+  .select p {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #f00e0e;
+  }
+  
+  .form-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  
+  .signupinput {
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 100%;
+    border: none;
+  }
+  
+  .signupinput::placeholder {
+    color: #595959;
+    font-size: 12px;
+  }
+
+  .signuplink{
+    width: 100%;
+    height: 50px;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 145px;
+  }
+  
+  .signup-input-btn {
+    width: 80%;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      rgb(39, 176, 255) 0%,
+      rgb(0, 232, 236) 100%
+    );
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .signup-input-btn:hover {
+    cursor: pointer;
+    background: #fff ;
+    color: #242424;
+    transition: all 0.3s ease-out;
+  }
+  
+  .go-to-login {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .go-to-login a {
+    text-decoration: none;
+    color: #27cdff;
+    font-weight: 600;
+  }
