@@ -7,8 +7,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
-const pool = mysql.createPool({
-   connectionLimit : 10,
+const db = mysql.createConnection({
    host            : 'localhost',
    user            : 'root',
    password        : "",
@@ -17,7 +16,7 @@ const pool = mysql.createPool({
 
 app.get("/", (req, res) => {
     const query = "SELECT * FROM test";
-    pool.query(query, (error, results) => {
+    db.query(query, (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
