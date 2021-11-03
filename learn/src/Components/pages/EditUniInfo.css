@@ -1,0 +1,11 @@
+.editinput::placeholder {
+    color: #595959;
+    font-size: 12px;
+  }
+
+  .form-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: #000;
+  }

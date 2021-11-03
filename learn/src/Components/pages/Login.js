@@ -5,17 +5,14 @@ import validateInfoLogin from '../validateInfoLogin';
 import './Login.css'
 import '../../App.js';
 import  Axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 
 
 function Login() {
+    let history = useHistory();
     const {handleChange, values,handleSubmit, errors} = useLoginForm(validateInfoLogin);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loginState, setLoginState] = useState("");
-
-    function redirect()
-    {
-        window.location.href="/";
-    }
 
 
     const login = () =>{
@@ -24,8 +21,20 @@ function Login() {
               email: values.email}).then((response)=>{
                   if(response.data.message)
                   { setLoginState(response.data.message)}
-                  else
-                  { redirect();}
+                  else{
+                    console.log(response.data);
+                  if(response.data[0].type==='student')
+                  { history.push({
+                    pathname: '/userprofile',
+                      data: values.email 
+                  });}
+                  else{
+                    history.push({
+                        pathname: '/uniprofile',
+                          data: values.email 
+                      });  
+                  }
+                }
                   //console.log(response.data);
               })   
       };

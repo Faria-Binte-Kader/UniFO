@@ -15,31 +15,15 @@ const db = mysql.createConnection({
     database        : 'UniFO'
  })
  
-app.post("/users", (req, res) => {
-    /*const Uname = req.body.uname;
-    const Name = req.body.name;
-    const Mail = req.body.mail;
-    const Phone = req.body.phone;
-    const Father = req.body.father;
-    const Mother = req.body.mother;
-    const Gender = req.body.gender;
-    const Dob = req.body.mdob;
-    const Blood = req.body.blood;
-    const Address = req.body.address;*/
-    const Uname = req.body.username;
-    const Mail = req.body.email;
-    const Phone = "";
-    const Father = "";
-    const Mother = "";
-    const Gender = "";
-    const Dob = "";
-    const Blood = "";
-    const Address = "";
 
-    db.query("INSERT INTO users(Uname,Name,Mail,Phone,Father,Mother,Gender,Dob,Blood,Address) VALUES (?,?,?,?,?,?,?,?,?,?)",
-    [Uname,Name,Mail,Phone,Father,Mother,Gender,Dob,Blood,Address], (error, results) => {
-        if (error)  return console.log(error.message);
-        //res.send(results);
+app.post("/user", (req, res) => {
+    const Email = req.body.email;
+
+    db.query("SELECT users.name, users.Email, student_info.Father, student_info.Mother,student_info.Gender, student_info.DOB, student_info.Blood, student_info.District, student_info.Address FROM users, student_info WHERE users.Email=student_info.Email AND users.Email=(?)",
+    [Email], (error, results) => {
+        if (error)  {res.send({err: err})}
+            res.send(results);
+        
     });
 });
 
@@ -52,7 +36,6 @@ app.post("/", (req, res) => {
     db.query("INSERT INTO users (name,type,password,email) VALUES (?,?,?,?)",
     [Name,Type,Password,Email], (error, results) => {
         if (error)  return console.log(error.message);
-        //res.send(results);
     });
 });
 
@@ -60,13 +43,13 @@ app.post("/login", (req, res) => {
     const Password = req.body.password;
     const Email = req.body.email;
 
-    db.query("SELECT email, password FROM users WHERE email = (?) AND password = (?)",
+    db.query("SELECT email, password, type FROM users WHERE email = (?) AND password = (?)",
     [Email,Password], (error, results) => {
         if (error)  {res.send({err: err})}
             if(results.length>0)
             {res.send(results)}
             else {res.send({message: "Wrong username/password combination!"})}
-        //res.send(results);
+       
     });
 });
 
@@ -77,6 +60,18 @@ app.get("/", (req, res) => {
     })
 });
 
+app.post("/editstudentinfo", (req, res) => {
+    const Mother = req.body.Mother;
+    const Father = req.body.Father;
+    const Email = req.body.email;
+
+    db.query("UPDATE student_info SET Father=(?), Mother=(?) WHERE Email=(?)",
+    [Father,Mother,Email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
 app.listen(port, () =>{
     console.log("running on port 3001");
-})
+});
+

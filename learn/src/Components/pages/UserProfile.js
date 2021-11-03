@@ -2,12 +2,13 @@ import "./UserProfile.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
+import { Link } from 'react-router-dom';
 
-function UserProfile() {
-    let { uname } = useParams();
+function UserProfile(props) {
+  const { data } = props.location;
     const [name, setName] = useState("");
     const [mail, setMail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [district, setDistrict] = useState("");
     const [father, setFather] = useState("");
     const [mother, setMother] = useState("");
     const [gender, setGender] = useState("");
@@ -16,21 +17,28 @@ function UserProfile() {
     const [address, setAddress] = useState("");
 
     useEffect(() => {
-        Axios.get('http://localhost:3001/users').then((response) => {
-        setName(response.data.name);
-        setMail(response.data.mail);
-        setPhone(response.data.phone);
-        setFather(response.data.father);
-        setMother(response.data.mother);
-        setGender(response.data.gender);
-        setDob(response.data.dob);
-        setBlood(response.data.blood);
-        setAddress(response.data.address);
-        });
+      getStudentInfo();
       }, []);
 
+
+      const getStudentInfo = () =>{
+        Axios.post('http://localhost:3001/user',{
+              email: data}).then((response)=>{
+                  setName(response.data[0].name);
+                  setMail(response.data[0].Email);
+                    setDistrict(response.data[0].District);
+                    setFather(response.data[0].Father);
+                    setMother(response.data[0].Mother);
+                    setGender(response.data[0].Gender);
+                    setDob(response.data[0].DOB);
+                    setBlood(response.data[0].Blood);
+                    setAddress(response.data[0].Address);
+            })   
+      };
+      
       return (
         <div className="users">
+           <span className='go-to-editinfo'><Link to={{ pathname: "/editstudentinfo", data: data }}>Edit Profile</Link></span>
             <div>
                 <br></br>
                 <br></br>
@@ -42,7 +50,7 @@ function UserProfile() {
                 <br></br>
             <h3>{name}</h3>
             <h3>{mail}</h3>
-            <h3>{phone}</h3>
+            <h3>{district}</h3>
             <h3>Father's Name: {father}</h3>
             <h3>Mother's Name: {mother}</h3>
             <h3>Gender: {gender}</h3>
