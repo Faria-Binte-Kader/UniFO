@@ -5,8 +5,24 @@ import img2 from '../assets/buetimage.PNG';
 import img3 from '../assets/dufrontpage.PNG';
 import img4 from '../assets/sustfrontpage.PNG';
 import './Cards.css'
+import Axios from "axios";
+import { useEffect, useState } from "react";
 
 function Cards() {
+    const [listOfUniversity, setUniversity] = useState([]);
+
+    useEffect(() => {
+        getQuickAccess();
+    }, []);
+
+    const getQuickAccess = () => {
+        Axios.post('http://localhost:3001/quickaccess', {
+        }).then((response) => {
+            setUniversity(response.data);
+            //console(response.data);
+        })
+    };
+
     return (
         <div className="cards">
             <h1>Recent Updates</h1>
@@ -27,28 +43,21 @@ function Cards() {
             </div>
             </div>
             <h1>Quick Access</h1>
-            <div className='cards__container'>
-         <div className='cards__wrapper'>
-          <ul className='cards__items'>
-                  <CardItem 
-                  src={img3}
-                  text="University of Dhaka"
-                  label='News'
-                  path='/unilist'/>
-                  <CardItem 
-                  src={img2}
-                  text="Bangladesh University of Engineering and Technology"
-                  label='News'
-                  path='/unilist'/>
-                  <CardItem 
-                  src={img4}
-                  text="Shahjalal University of Science and Technology"
-                  label='News'
-                  path='/unilist'/>
-                   </ul>
-                    
-            </div>
-            </div>
+            {listOfUniversity.map((values, key) => {
+                return (
+                    <div className='cards__container_uni'>
+                      <div className='cards__wrapper'>
+                           <ul className='cards__items_uni'>
+                                    <CardItem
+                                        src={values.imageURL}
+                                        text={values.Name}
+                                        label='University_preview_card'
+                                        path='/unilist' />
+                                </ul>
+                            </div>
+                     </div>
+                )
+            })}
         </div>
     )
 }

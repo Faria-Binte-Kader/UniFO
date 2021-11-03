@@ -4,10 +4,21 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import CardItem from '../CardItem'
-import './UniList.css';
+import './UniList.css'
 
 function UniList() {
     const [listOfUniversity, setUniversity] = useState([]);
+    const [click, setClick] = useState(false);
+    const HandleClick = () => {
+        setClick(!click);
+     if(click===false)
+    { 
+        getAllUniversitySortDown();
+    }
+    else
+   {
+        getAllUniversitySortUp();
+   }}
 
     useEffect(() => {
         getAllUniversity();
@@ -20,10 +31,28 @@ function UniList() {
             //console(response.data);
         })
     };
+    const getAllUniversitySortDown = () => {
+        Axios.post('http://localhost:3001/sortdown', {
+        }).then((response) => {
+            setUniversity(response.data);
+            //console(response.data);
+        })
+    };
+    const getAllUniversitySortUp = () => {
+        Axios.post('http://localhost:3001/sortup', {
+        }).then((response) => {
+            setUniversity(response.data);
+            //console(response.data);
+        })
+    };
 
     return (
         <div className="UniList">
             <h1>All Universities</h1>
+        <div className='sortbtn' onClick={HandleClick}>
+            <p>SORT</p>
+            <i className={click ? 'fas fa-sort-up' : 'fas fa-sort-down'}/>
+        </div>
             {listOfUniversity.map((values, key) => {
                 return (
                     <div className='cards__container_university'>

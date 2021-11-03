@@ -16,13 +16,13 @@
     margin: 0 auto;
   }
 
-  .cards__container__university {
+  .cards__container__uni {
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 200px;
+    max-width: 1120px;
     width: 90%;
-    margin: 0 auto;
+    margin-left: 100px;
   }
   
   .cards__wrapper {
@@ -31,7 +31,7 @@
   }
   
   .cards__items {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
   
   .cards__item {
