@@ -71,6 +71,23 @@ app.post("/editstudentinfo", (req, res) => {
     });
 });
 
+app.post("/uniList", (req, res) => {
+    db.query("SELECT * FROM all_universities", (error, results) => {
+        if (error)  return console.error(error.message);
+        res.send(results);
+    })
+});
+
+app.get("/uniList", (req, res) => {
+    db.query("SELECT * FROM all_universities", (error, results) => {
+        if (error)  return console.error(error.message);
+        res.send(results);
+    })
+});
+
+var allUniversityList = "All University";
+app.use(express.static(allUniversityList));
+
 app.listen(port, () =>{
     console.log("running on port 3001");
 });

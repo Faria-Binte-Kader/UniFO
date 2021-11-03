@@ -15,6 +15,15 @@
     width: 90%;
     margin: 0 auto;
   }
+
+  .cards__container__university {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 200px;
+    width: 90%;
+    margin: 0 auto;
+  }
   
   .cards__wrapper {
     position: relative;
