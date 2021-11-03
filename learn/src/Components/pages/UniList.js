@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import CardItem from '../CardItem'
+import './UniList.css';
 
 function UniList() {
     const [listOfUniversity, setUniversity] = useState([]);
@@ -22,13 +23,12 @@ function UniList() {
 
     return (
         <div className="UniList">
-            <h1>University List</h1>
+            <h1>All Universities</h1>
             {listOfUniversity.map((values, key) => {
                 return (
-                    <div className='cards__container__university'>
-                        <div className='cards__wrapper'>
-                            <div className='cards__aligner'>
-                                <ul className='cards__items'>
+                    <div className='cards__container_university'>
+                      <div className='cards__wrapper'>
+                           <ul className='cards__items_uni'>
                                     <CardItem
                                         src={values.imageURL}
                                         text={values.Name}
@@ -36,9 +36,7 @@ function UniList() {
                                         path='/unilist' />
                                 </ul>
                             </div>
-
-                        </div>
-                    </div>
+                     </div>
                 )
             })}
         </div>
