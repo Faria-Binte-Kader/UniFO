@@ -33,7 +33,32 @@
   align-items: center;
 }
 
+.searchbar{
+  align-items: center;
+  margin-top: 20px;
+}
 
+.searchbar input{
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #595959;
+}
+
+.searchbar input::placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+
+.searchbar input.active {
+  border: none;
+  text-decoration-color: #fff;
+}
+
+.fa-search{
+  color: #fff;
+}
 
 .nav-menu {
   display: grid;

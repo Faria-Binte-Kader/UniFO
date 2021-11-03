@@ -31,6 +31,10 @@ function Navbar() {
                    <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
                </div>
                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+               <li className='searchbar'>
+                      <input type="text" placeholder="Search"/>
+                      <i class="fas fa-search"></i>
+                   </li>
                    <li className='nav-item'>
                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
                    </li>
@@ -39,9 +43,6 @@ function Navbar() {
                    </li>
                    <li className='nav-item'>
                        <Link to='/aboutus' className='nav-links' onClick={closeMobileMenu}>About Us</Link>
-                   </li>
-                   <li className='nav-item'>
-                       <Link to='/userprofile' className='nav-links' onClick={closeMobileMenu}>Profile</Link>
                    </li>
                    <li className='nav-item'>
                        <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>Log In</Link>
