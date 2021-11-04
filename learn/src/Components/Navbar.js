@@ -31,10 +31,6 @@ function Navbar() {
                    <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
                </div>
                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-               <li className='searchbar'>
-                      <input type="text" placeholder="Search"/>
-                      <i class="fas fa-search"></i>
-                   </li>
                    <li className='nav-item'>
                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
                    </li>

@@ -15,11 +15,28 @@
   width: 80px;
   height: 30px;
   border-radius: 20px;
-  border: 1px solid var(--primary); 
-  background-color: darkgray;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
   align-items: center;
   padding-left: 16px;
   }
+
+  .searchbutton{
+  
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background: linear-gradient(
+      90deg,
+      rgb(39, 176, 255) 0%,
+      rgb(0, 232, 236) 100%
+    );
+    align-items: center;
+    
+    }
   
   .cards__container__university {
     display: flex;

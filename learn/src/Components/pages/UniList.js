@@ -8,6 +8,7 @@ import './UniList.css'
 
 function UniList() {
     const [listOfUniversity, setUniversity] = useState([]);
+    const [name, setName] = useState("");
     const [click, setClick] = useState(false);
     const HandleClick = () => {
         setClick(!click);
@@ -46,9 +47,34 @@ function UniList() {
         })
     };
 
+    const HandleSearch = () => {
+        Axios.post('http://localhost:3001/uniListSearchName', {
+            Name: name
+        }).then((response) => {
+            setUniversity(response.data);
+            //console(response.data);
+        })
+    }
+    const handleSubmit = e => {
+        e.preventDefault();   
+    }
+
     return (
         <div className="UniList">
             <h1>All Universities</h1>
+            <div className='searchbar' >
+                <form className='searchform' onSubmit={(e)=>{
+              handleSubmit(e); HandleSearch(); }}>
+                    <input type="text"
+                        placeholder="Search"
+                        onChange={(e)=>{
+                            const selectedState = e.target.value;
+                            setName(selectedState);
+                        }}
+                    />
+                     <button className='searchbutton'>GO</button>
+                </form>
+            </div>
         <div className='sortbtn' onClick={HandleClick}>
             <p>SORT</p>
             <i className={click ? 'fas fa-sort-up' : 'fas fa-sort-down'}/>
