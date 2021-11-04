@@ -6,23 +6,28 @@
   h1 {
     text-align: center;
   }
+
+  .sortbtn{
+    display: flex;
+    float: right;
+  flex-flow: row;
+  margin-right: 100px;
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--primary); 
+  background-color: darkgray;
+  align-items: center;
+  padding-left: 16px;
+  }
   
-  .cards__container {
+  .cards__container__university {
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 1120px;
+    max-width: 300px;
     width: 90%;
     margin: 0 auto;
-  }
-
-  .cards__container__uni {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    max-width: 1120px;
-    width: 90%;
-    margin-left: 100px;
   }
   
   .cards__wrapper {
@@ -30,32 +35,19 @@
     margin: 50px 0 45px;
   }
   
-  .cards__items {
-    margin-bottom: 16px;
+  .cards__items_uni {
+    margin: 15px;
+    display: inline;
+    float: left;
   }
   
   .cards__item {
-    display: flex;
-    flex: 1;
+   width: 340px;
+   height: 340px;
     margin: 0 1rem;
     border-radius: 10px;
   }
 
-  .cards__profileitem {
-    display: flex;
-    margin-bottom: 10px;
-  }
-
-  .cards__profilecontainer {
-    display:contents;
-  }
-  
-  .cards__profile {
-    padding: 2rem;
-    margin: 5%;
-    border-radius: 10px;
-    background:rgb(189, 187, 187);
-  }
   
   .cards__item__link {
     display: flex;

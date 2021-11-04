@@ -96,6 +96,27 @@ app.get("/uniList", (req, res) => {
     })
 });
 
+app.post("/quickaccess", (req, res) => {
+    db.query("SELECT * FROM all_universities ORDER BY name LIMIT 4", (error, results) => {
+        if (error)  return console.error(error.message);
+        res.send(results);
+    })
+});
+
+app.post("/sortdown", (req, res) => {
+    db.query("SELECT * FROM all_universities ORDER BY name", (error, results) => {
+        if (error)  return console.error(error.message);
+        res.send(results);
+    })
+});
+
+app.post("/sortup", (req, res) => {
+    db.query("SELECT * FROM all_universities ORDER BY name DESC", (error, results) => {
+        if (error)  return console.error(error.message);
+        res.send(results);
+    })
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 
