@@ -162,6 +162,25 @@ app.post("/sortup", (req, res) => {
     })
 });
 
+app.post("/uniListSearchName", (req, res) => {
+    const Name = req.body.Name;
+    db.query("SELECT * FROM all_universities WHERE Name LIKE '%" + Name + "%' ",
+        [Name], (error, results) => {
+            if (error) return console.error(error.message);
+            res.send(results);
+        })
+});
+
+
+app.get("/uniListSearchName", (req, res) => {
+    const Name = req.body.Name;
+    db.query("SELECT * FROM all_universities WHERE Name LIKE '%" + Name + "%' ",
+        [Name], (error, results) => {
+            if (error) return console.error(error.message);
+            res.send(results);
+        })
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 
