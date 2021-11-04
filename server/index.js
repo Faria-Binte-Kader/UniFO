@@ -61,12 +61,23 @@ app.get("/", (req, res) => {
 });
 
 app.post("/editstudentinfo", (req, res) => {
+    const Name = req.body.Name;
     const Mother = req.body.Mother;
     const Father = req.body.Father;
     const Email = req.body.email;
+    const Gender = req.body.Gender;
+    const Dob = req.body.Dob;
+    const Blood = req.body.Blood;
+    const District = req.body.District;
+    const Address = req.body.Address;
 
-    db.query("UPDATE student_info SET Father=(?), Mother=(?) WHERE Email=(?)",
-    [Father,Mother,Email], (error, results) => {
+    db.query("UPDATE student_info SET Name=(?), Father=(?), Mother=(?), Gender=(?), DOB=(?), Blood=(?), District=(?), Address=(?) WHERE Email=(?)",
+    [Name,Father,Mother,Gender,Dob,Blood,District,Address,Email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+
+    db.query("UPDATE users SET Name=(?) WHERE Email=(?)",
+    [Name,Email], (error, results) => {
         if (error)  return console.log(error.message);
     });
 });
