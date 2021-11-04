@@ -27,6 +27,17 @@ app.post("/user", (req, res) => {
     });
 });
 
+app.post("/uniuser", (req, res) => {
+    const Email = req.body.email;
+
+    db.query("SELECT users.name, users.Email, university_info.Name, university_info.Website, university_info.District, university_info.General, university_info.Duration, university_info.Tuition, university_info.Scholarship, university_info.Admissiondate FROM users, university_info WHERE users.Email=university_info.Email AND users.Email=(?)",
+    [Email], (error, results) => {
+        if (error)  {res.send({err: err})}
+            res.send(results);
+        
+    });
+});
+
 app.post("/", (req, res) => {
     const Name = req.body.username;
     const Type = req.body.usertype;
@@ -89,11 +100,45 @@ app.post("/uniList", (req, res) => {
     })
 });
 
-app.get("/uniList", (req, res) => {
+app.post("/uniList", (req, res) => {
     db.query("SELECT * FROM all_universities", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
+});
+
+app.post("/departmentinfo", (req, res) => {
+    const Name = req.body.Name;
+    const Email = req.body.Email;
+
+    db.query("SELECT users.Name, users.Email, department_info.Email, department_info.Name, department_info.University, department_info.About, department_info.Programs FROM users, department_info WHERE users.Name=department_info.University AND users.Email=department_info.Email AND users.Name=(?) AND users.Email=(?)",
+    [Name, Email], (error, results) => {
+        if (error)  {res.send({err: err})}
+            res.send(results);
+        
+    });
+});
+
+/*app.get("/departmentinfo", (req, res) => {
+    const Name = req.body.name;
+
+    db.query("SELECT * FROM department_info WHERE users.Email=department_info.Email AND users.Email=(?)",
+    [Name], (error, results) => {
+        if (error)  {res.send({err: err})}
+            res.send(results);
+        
+    });
+});*/
+
+app.post("/departmentdetails", (req, res) => {
+    const Name = req.body.name;
+
+    db.query("SELECT Name, About, Programs FROM department_info WHERE Name=(?)",
+    [Name], (error, results) => {
+        if (error)  {res.send({err: err})}
+            res.send(results);
+        
+    });
 });
 
 app.post("/quickaccess", (req, res) => {
