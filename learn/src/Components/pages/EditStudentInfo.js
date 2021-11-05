@@ -5,7 +5,8 @@ import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
 function EditStudentInfo(props) {
-  const { data } = props.location;
+  //const { data } = props.location;
+  const data=  localStorage.getItem('usermail');
   let history = useHistory();
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");

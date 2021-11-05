@@ -6,7 +6,8 @@ import Axios from "axios";
 import { Link } from 'react-router-dom';
 
 function UserProfile(props) {
-  const { data } = props.location;
+ // const { data } = props.location;
+ const data=  localStorage.getItem('usermail');
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [district, setDistrict] = useState("");

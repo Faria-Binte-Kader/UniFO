@@ -1,119 +1,118 @@
 .header{
-    width: 100%;
-    height: 400px;
-    display: flex;
+  width: 100%;
+  height: 400px;
+  display: flex;
 }
 .leftside{
- flex: 20%;
- justify-content: center;
- align-items: center;
- box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    border-radius: 10px;
-    overflow: hidden;
-    text-decoration: none;
-    padding: 60px;
+flex: 20%;
+justify-content: center;
+align-items: center;
+box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  padding: 60px;
 }
 
 .leftside span{
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .rightside{
-    flex: 75%;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-       -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-       filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-       border-radius: 10px;
-       overflow: hidden;
-       text-decoration: none;
-       padding: 60px;
-       margin-left: 10px;
-  }
-
-  .postbtn {
-    width: 10%;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 70%;
-    border-radius: 30px;
-    background: linear-gradient(
-      90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
-    );
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-  }
-  
-  .postbtn:hover {
-    cursor: pointer;
-    background: #fff ;
-    color: #242424;
-    outline:rgb(0, 232, 236);
-    border:rgb(0, 232, 236);
-    transition: all 0.3s ease-out;
-  }
-
-  .postform {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .postform h1 {
-    font-size: 1rem;
-    text-align: start;
-    width: 80%;
-    margin-bottom: 1rem;
-    color: #000;
-  }
-  
-  .postinputs {
-    margin-bottom: 0.5rem;
-    width: 80%;
-  }
-  
-  
-  .post-form-label {
-    display: inline-block;
-    font-size: 0.8rem;
-    margin-bottom: 6px;
-    color: #000;
-  }
-  
-  .postinput {
-    display: block;
-    padding-left: 10px;
-    outline: none;
-    border-radius: 2px;
-    height: 40px;
-    width: 100%;
-   border-top: #595959;
-   border-left: #595959;
-   border-right: #595959;
-    
-  }
-
-  .postdetails{
-      padding: 10px;
+  flex: 75%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
      border-radius: 10px;
-  }
+     overflow: hidden;
+     text-decoration: none;
+     padding: 60px;
+     margin-left: 10px;
+}
+
+.postbtn {
+  width: 10%;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 70%;
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.postbtn:hover {
+  cursor: pointer;
+  background: #fff ;
+  color: #242424;
+  outline:rgb(0, 232, 236);
+  border:rgb(0, 232, 236);
+  transition: all 0.3s ease-out;
+}
+
+.postform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.postform h1 {
+  font-size: 1rem;
+  text-align: start;
+  width: 80%;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.postinputs {
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+
+
+.post-form-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.postinput {
+  display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+ border-top: #595959;
+ border-left: #595959;
+ border-right: #595959;
   
-  .postinput::placeholder {
-    color: #595959;
-    font-size: 12px;
-  }
-  
+}
+
+.postdetails{
+    padding: 10px;
+   border-radius: 10px;
+}
+
+.postinput::placeholder {
+  color: #595959;
+  font-size: 12px;
+}

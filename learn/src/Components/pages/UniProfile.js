@@ -7,7 +7,8 @@ import { Link, useHistory } from "react-router-dom";
 
 function UniProfile(props) {
   let history = useHistory();
-  const { data } = props.location;
+  //const { data } = props.location;
+  const data=  localStorage.getItem('usermail');
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [website, setWebsite] = useState("");

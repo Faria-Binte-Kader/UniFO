@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import Axios from "axios";
 
 function EditUniInfo(props) {
-  const { data } = props.location;
+  const data=  localStorage.getItem('usermail');
+  const type=  localStorage.getItem('usertype');
    
     useEffect(() => {
     

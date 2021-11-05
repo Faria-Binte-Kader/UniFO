@@ -12,6 +12,10 @@ import UniProfile from './Components/pages/UniProfile';
 import EditUniInfo from './Components/pages/EditUniInfo';
 import EditStudentInfo from './Components/pages/EditStudentInfo';
 import Departmentdetails from './Components/pages/Departmentdetails';
+import HomeUniversity from './Components/pages/HomeUniversity';
+import HomeStudent from './Components/pages/HomeStudent';
+import HomeUser from './Components/pages/HomeUser';
+
 
 function App() {
   return (
@@ -20,6 +24,9 @@ function App() {
       <Navbar/>
       <Switch>
         <Route path='/' exact component={Home}/>
+        <Route path='/homeuser' component={ HomeUser}/>
+       <Route path='/homeuniversity' component={ HomeUniversity}/>
+       <Route path='/homestudent' exact component={ HomeStudent}/>
         <Route path='/unilist' component={UniList}/>
         <Route path='/aboutus' component={AboutUs}/>
         <Route path='/userprofile' component={UserProfile}/>
