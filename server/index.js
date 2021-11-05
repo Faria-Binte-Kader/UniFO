@@ -94,14 +94,14 @@ app.post("/editstudentinfo", (req, res) => {
 });
 
 app.post("/uniList", (req, res) => {
-    db.query("SELECT * FROM all_universities", (error, results) => {
+    db.query("SELECT * FROM university_info", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
 });
 
 app.post("/uniList", (req, res) => {
-    db.query("SELECT * FROM all_universities", (error, results) => {
+    db.query("SELECT * FROM university_info", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
@@ -138,14 +138,14 @@ app.post("/quickaccess", (req, res) => {
 });
 
 app.post("/sortdown", (req, res) => {
-    db.query("SELECT * FROM all_universities ORDER BY name", (error, results) => {
+    db.query("SELECT * FROM university_info ORDER BY name", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
 });
 
 app.post("/sortup", (req, res) => {
-    db.query("SELECT * FROM all_universities ORDER BY name DESC", (error, results) => {
+    db.query("SELECT * FROM university_info ORDER BY name DESC", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
@@ -153,7 +153,7 @@ app.post("/sortup", (req, res) => {
 
 app.post("/uniListSearchName", (req, res) => {
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Name LIKE '%" + Name + "%' ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Name LIKE '%" + Name + "%' ORDER BY Name ASC",
         [Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -163,7 +163,7 @@ app.post("/uniListSearchName", (req, res) => {
 
 app.post("/uniListSearchLocation", (req, res) => {
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Location=(?) ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Location=(?) ORDER BY Name ASC",
         [Location], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -173,7 +173,7 @@ app.post("/uniListSearchLocation", (req, res) => {
 app.post("/uniListSearchNameLocation", (req, res) => {
     const Location = req.body.Location;
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
         [Location,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -182,7 +182,7 @@ app.post("/uniListSearchNameLocation", (req, res) => {
 
 app.post("/uniListSearchType", (req, res) => {
     const Type = req.body.Type;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) ORDER BY Name ASC",
         [Type], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -192,7 +192,7 @@ app.post("/uniListSearchType", (req, res) => {
 app.post("/uniListSearchNameType", (req, res) => {
     const Type = req.body.Type;
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
         [Type,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -202,7 +202,7 @@ app.post("/uniListSearchNameType", (req, res) => {
 app.post("/uniListSearchLocationType", (req, res) => {
     const Type = req.body.Type;
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Location=(?) ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Location=(?) ORDER BY Name ASC",
         [Type,Location], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -213,7 +213,7 @@ app.post("/uniListSearchNameLocationType", (req, res) => {
     const Name = req.body.Name;
     const Type = req.body.Type;
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name ASC",
         [Type,Location,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -223,7 +223,7 @@ app.post("/uniListSearchNameLocationType", (req, res) => {
 //for DESC Search
 app.post("/uniListSearchNameUp", (req, res) => {
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Name LIKE '%" + Name + "%' ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Name LIKE '%" + Name + "%' ORDER BY Name DESC",
         [Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -233,7 +233,7 @@ app.post("/uniListSearchNameUp", (req, res) => {
 
 app.post("/uniListSearchLocationUp", (req, res) => {
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Location=(?) ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Location=(?) ORDER BY Name DESC",
         [Location], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -243,7 +243,7 @@ app.post("/uniListSearchLocationUp", (req, res) => {
 app.post("/uniListSearchNameLocationUp", (req, res) => {
     const Location = req.body.Location;
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
         [Location,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -252,7 +252,7 @@ app.post("/uniListSearchNameLocationUp", (req, res) => {
 
 app.post("/uniListSearchTypeUp", (req, res) => {
     const Type = req.body.Type;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) ORDER BY Name DESC",
         [Type], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -262,7 +262,7 @@ app.post("/uniListSearchTypeUp", (req, res) => {
 app.post("/uniListSearchNameTypeUp", (req, res) => {
     const Type = req.body.Type;
     const Name = req.body.Name;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
         [Type,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -272,7 +272,7 @@ app.post("/uniListSearchNameTypeUp", (req, res) => {
 app.post("/uniListSearchLocationTypeUp", (req, res) => {
     const Type = req.body.Type;
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Location=(?) ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Location=(?) ORDER BY Name DESC",
         [Type,Location], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
@@ -283,7 +283,7 @@ app.post("/uniListSearchNameLocationTypeUp", (req, res) => {
     const Name = req.body.Name;
     const Type = req.body.Type;
     const Location = req.body.Location;
-    db.query("SELECT * FROM all_universities WHERE Type=(?) AND Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
+    db.query("SELECT * FROM university_info WHERE Type=(?) AND Location=(?) AND Name LIKE '%" + Name + "%' ORDER BY Name DESC",
         [Type,Location,Name], (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);
