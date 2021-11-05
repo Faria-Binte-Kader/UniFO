@@ -11,6 +11,7 @@ import SignUp from './Components/pages/SignUp';
 import UniProfile from './Components/pages/UniProfile';
 import EditUniInfo from './Components/pages/EditUniInfo';
 import EditStudentInfo from './Components/pages/EditStudentInfo';
+import Departmentdetails from './Components/pages/Departmentdetails';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/editstudentinfo' component={EditStudentInfo}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
+        <Route path='/departmentdetails' component={Departmentdetails}/>
       </Switch>
       </Router>
     </>

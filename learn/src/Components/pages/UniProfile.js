@@ -18,7 +18,6 @@ function UniProfile(props) {
   const [scholarship, setScholarship] = useState("");
   const [admissiondate, setAdmissiondate] = useState("");
   const [listOfDepartment, setDepartmentlist] = useState([]);
-  //const [listOfDepartment, setDepartmentlist] = useState("");
 
   /*const showdepartment = (name) =>{
     Axios.post('http://localhost:3001/departmentinfo')
@@ -40,8 +39,8 @@ function UniProfile(props) {
   };*/
 
   useEffect(() => {
-    getAllDepartment();
     getUniversityInfo();
+    getAllDepartment();
   }, []);
 
   const getUniversityInfo = () => {
@@ -62,10 +61,9 @@ function UniProfile(props) {
 
   const getAllDepartment = () => {
     Axios.post('http://localhost:3001/departmentinfo', {
-      name: data
+      email: data
     }).then((response) => {
         setDepartmentlist(response.data);
-        //console(response.data);
     })
 };
 
@@ -116,7 +114,7 @@ function UniProfile(props) {
               <Row>
                 {listOfDepartment.map((values, key) => {
                   return (
-                      <div>{values.Name}</div>
+                      <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/departmentdetails", data: [{Name: values.Name, University: values.University, About: values.About, Programs: values.Programs}]}}>{values.Name}</Link></h3>
                   )
                 })}  
               </Row>

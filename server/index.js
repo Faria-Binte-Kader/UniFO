@@ -108,33 +108,22 @@ app.post("/uniList", (req, res) => {
 });
 
 app.post("/departmentinfo", (req, res) => {
-    const Name = req.body.Name;
-    const Email = req.body.Email;
+    const Email = req.body.email;
 
-    db.query("SELECT users.Name, users.Email, department_info.Email, department_info.Name, department_info.University, department_info.About, department_info.Programs FROM users, department_info WHERE users.Name=department_info.University AND users.Email=department_info.Email AND users.Name=(?) AND users.Email=(?)",
-    [Name, Email], (error, results) => {
+    db.query("SELECT users.Name, users.Email, department_info.Email, department_info.Name, department_info.University, department_info.About, department_info.Programs FROM users, department_info WHERE users.Email=department_info.Email AND users.Email=(?)",
+    [Email], (error, results) => {
         if (error)  {res.send({err: err})}
             res.send(results);
         
     });
 });
 
-/*app.get("/departmentinfo", (req, res) => {
-    const Name = req.body.name;
-
-    db.query("SELECT * FROM department_info WHERE users.Email=department_info.Email AND users.Email=(?)",
-    [Name], (error, results) => {
-        if (error)  {res.send({err: err})}
-            res.send(results);
-        
-    });
-});*/
-
 app.post("/departmentdetails", (req, res) => {
-    const Name = req.body.name;
+    const Name = req.body.Name;
+    const Email = req.body.Email;
 
-    db.query("SELECT Name, About, Programs FROM department_info WHERE Name=(?)",
-    [Name], (error, results) => {
+    db.query("SELECT * FROM department_info WHERE Name=(?) AND Email=(?)",
+    [Name, Email], (error, results) => {
         if (error)  {res.send({err: err})}
             res.send(results);
         
