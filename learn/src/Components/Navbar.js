@@ -4,6 +4,7 @@ import { Button } from './Button';
 import './Navbar.css'
 
 function Navbar() {
+    const data=  localStorage.getItem('usermail');
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
@@ -20,6 +21,7 @@ function Navbar() {
 
     useEffect(() => {
         showButton();
+
     }, []);
     window.addEventListener('resize',showButton);
     return (
@@ -32,7 +34,9 @@ function Navbar() {
                </div>
                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                    <li className='nav-item'>
-                       <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
+                    {localStorage.getItem("usertype") === ''?
+                       (<Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>):
+                        (<Link to='/homeuser' className='nav-links' onClick={closeMobileMenu}>Home</Link>)}
                    </li>
                    <li className='nav-item'>
                        <Link to='/unilist' className='nav-links' onClick={closeMobileMenu}>University List</Link>

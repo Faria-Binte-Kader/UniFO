@@ -22,7 +22,9 @@ function Login() {
                   if(response.data.message)
                   { setLoginState(response.data.message)}
                   else{
-                    console.log(response.data);
+                   localStorage.setItem('usermail', values.email);
+                   localStorage.setItem('usertype',response.data[0].type);
+                    console.log(localStorage.getItem('usertype'));
                   if(response.data[0].type==='student')
                   { history.push({
                     pathname: '/userprofile',
