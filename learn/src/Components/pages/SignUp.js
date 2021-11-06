@@ -15,13 +15,53 @@ function SignUp() {
     const [usernamereg, setUserName] = useState("");
     const [usermailreg, setUserMail] = useState("");
     const [userpasswordreg, setUserPassword] = useState("");
+   
+    function redirect() {
+        if(usertype==='student' || usertype==='Student')
+        {window.location.href = "/editstudentinfo";}
+        else
+        {window.location.href = "/edituniinfo";}
+    }
 
+    const register = () => {
+        localStorage.setItem('usermail', usermailreg);
+        localStorage.setItem('usertype', usertype);
+
+        Axios.post('http://localhost:3001/', {
+            username: usernamereg,
+            //usertype: values.usertype,
+            usertype: usertype,
+            password: userpasswordreg,
+            email: usermailreg
+        }).then((response) => {
+            localStorage.setItem('usermail', usermailreg);
+            localStorage.setItem('usertype', usertype);
+            console.log(response);
+        })
+    };
+
+    const insertUser = () =>{
+        Axios.post('http://localhost:3001/insert',{
+              Usertype: usertype,
+              username: usernamereg,
+              Email: usermailreg}).then((response)=>{
+                localStorage.setItem('usermail', usermailreg);
+                localStorage.setItem('usertype', usertype);
+                  console.log(response);
+              })   
+      };
 
 
     return (
         <div className='container'>
             <div className='signup-content'>
-                <form action='/' method="POST" className='signupform' onSubmit={(e) => { handleSubmit(e, usertype); console.log("real2 " + usertype); }}>
+                <form action='/' method="POST" className='signupform' onSubmit={(e) => { 
+                    localStorage.setItem('usermail', usermailreg);
+                    localStorage.setItem('usertype', usertype);
+                    handleSubmit(e, usertype); 
+                    register();
+                     insertUser(); 
+                     redirect(); }}>
                     <h1>
                         Join us by filling the information below!
                     </h1>

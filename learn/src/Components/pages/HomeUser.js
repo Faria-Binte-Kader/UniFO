@@ -11,10 +11,10 @@ function HomeUser() {
   const [student, setStudent] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem('usertype') === 'student') {
+    if (localStorage.getItem('usertype') === 'student' || localStorage.getItem('usertype') === 'Student') {
       setStudent(true);
     }
-    else if (localStorage.getItem('usertype') === 'university-admin') {
+    else if (localStorage.getItem('usertype') === 'university-admin' || localStorage.getItem('usertype') === 'University-Admin') {
       setStudent(false);
     }
     console.log(type);

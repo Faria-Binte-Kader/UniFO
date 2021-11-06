@@ -387,6 +387,25 @@ app.post("/noticedetails", (req, res) => {
         })
 });
 
+app.post("/insert", (req, res) => {
+    const email = req.body.Email;
+    const utype = req.body.Usertype;
+    const uname = req.body.username;
+     
+if(utype==='student' || utype==='Student'){
+   db.query("INSERT INTO student_info (Email,Father, Mother,Gender,DOB,Blood,District,Address) VALUES (?,'','','','','','','')",
+    [email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+}
+else{
+    db.query("INSERT INTO university_info (Email,Name,Website,Location,General,Duration,Tuition,Scholarship,Admissiondate,Type,imageURL) VALUES (?,?,'','','','','','','','','')",
+    [email,uname], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+}
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 

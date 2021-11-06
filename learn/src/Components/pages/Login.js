@@ -26,15 +26,15 @@ function Login() {
         localStorage.setItem('usertype', response.data[0].type);
         localStorage.setItem('username', response.data[0].name);
         console.log(localStorage.getItem('usertype'));
-        if (response.data[0].type === 'student') {
+        if (response.data[0].type === 'student' || response.data[0].type === 'Student') {
           history.push({
-            pathname: '/userprofile',
+            pathname: '/homestudent',
             data: values.email
           });
         }
         else {
           history.push({
-            pathname: '/uniprofile',
+            pathname: '/homeuniversity',
             data: values.email
           });
         }

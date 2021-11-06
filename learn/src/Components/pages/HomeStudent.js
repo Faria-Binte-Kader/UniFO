@@ -1,13 +1,27 @@
 import React from 'react'
 import './HomeStudent.css'
+import CardItem from '../CardItem'
 import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from "react";
-
+import Axios from "axios";
 
 
 function HomeStudent() {
   let history = useHistory();
+  const [listOfNotices, setNotices] = useState([]);
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    getNotices();
+}, []);
+
+const getNotices = () => {
+  Axios.post('http://localhost:3001/getNotices', {
+  }).then((response) => {
+      setNotices(response.data);
+      //console(response.data);
+  })
+};
 
   const toggleModal = () => {
     setModal(!modal);
@@ -39,6 +53,25 @@ function HomeStudent() {
             </button></span>
           </div>
           <div className="rightsidestudent">
+          <h1>Recent Updates</h1>
+        {listOfNotices.map((values, key) => {
+          return (
+            <div className='cards__container_uni'>
+              <div className='cards__wrapper'>
+                <ul className='cards__items_uni'
+                  onClick={() => {
+                    localStorage.setItem('noticeID', values.ID);
+                  }}>
+                  <CardItem
+                    src={values.imageURL}
+                    text={values.Title}
+                    label='University_preview_card'
+                    path='/noticedetails' />
+                </ul>
+              </div>
+            </div>
+          )
+        })}
             {modal && (
               <div className="modal">
                 <div onClick={toggleModal} className="overlay"></div>

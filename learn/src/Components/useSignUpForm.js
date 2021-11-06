@@ -24,7 +24,10 @@ const useSignUpForm = validateInfoSignUp => {
     }
 
     function redirect() {
-        window.location.href = "/";
+        if(values.usertype==='student' || values.usertype==='Student')
+        {window.location.href = "/editstudentinfo";}
+        else
+        {window.location.href = "/edituniinfo";}
     }
 
     const register = () => {
@@ -36,10 +39,20 @@ const useSignUpForm = validateInfoSignUp => {
             password: values.password,
             email: values.email
         }).then((response) => {
+            localStorage.setItem('usermail', values.email);
+            localStorage.setItem('usertype', values.usertype);
             console.log(response);
         })
     };
 
+    const insertUser = () =>{
+        Axios.post('http://localhost:3001/insert',{
+              Usertype: values.usertype,
+              username: values.username,
+              Email: values.email}).then((response)=>{
+                  console.log(response);
+              })   
+      };
 
     const handleSubmit = (e, type) => {
         type = type;
@@ -49,6 +62,7 @@ const useSignUpForm = validateInfoSignUp => {
         setIsSubmitted(true);
         if (Object.keys(errors).length === 0 && isSubmitted) {
             register();
+            insertUser();
             redirect();
         }
 
