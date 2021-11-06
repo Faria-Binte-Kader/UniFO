@@ -347,6 +347,23 @@ app.post("/uniprofilescreen", (req, res) => {
         });
 });
 
+app.post("/getNotices", (req, res) => {
+    db.query("SELECT notices.UniMail, notices.Title, notices.ID, notices.Details, university_info.Name, university_info.imageURL FROM notices, university_info WHERE notices.UniMail=university_info.Email",
+        (error, results) => {
+            if (error) return console.error(error.message);
+            res.send(results);
+        })
+});
+
+app.post("/noticedetails", (req, res) => {
+    const nid = req.body.id;
+    db.query("SELECT * FROM notices WHERE ID=(?)",[nid],
+        (error, results) => {
+            if (error) return console.error(error.message);
+            res.send(results);
+        })
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 

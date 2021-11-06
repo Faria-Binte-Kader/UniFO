@@ -133,13 +133,13 @@ function HomeUniversity() {
                       <div className='cards__wrapper'>
                            <ul className='cards__items_uni'
                             onClick={() => {
-                              localStorage.setItem('noticaTitle', values.Title);
+                              localStorage.setItem('noticeID', values.ID);
                           }}>
                                     <CardItem
                                         src={values.imageURL}
                                         text={values.Title}
                                         label='University_preview_card'
-                                        path='/unilist' />
+                                        path='/noticedetails' />
                                 </ul>
                             </div>
                      </div>
