@@ -290,6 +290,17 @@ app.post("/uniListSearchNameLocationTypeUp", (req, res) => {
         })
 });
 
+app.post("/notices", (req, res) => {
+    const email = req.body.Email;
+    const title = req.body.Title;
+    const details = req.body.Details;
+
+    db.query("INSERT INTO notices (UniMail, Title, Details) VALUES (?,?,?)",
+    [email, title, details], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 

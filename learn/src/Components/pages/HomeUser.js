@@ -6,16 +6,16 @@ import HomeUniversity from './HomeUniversity.js'
 
 
 function HomeUser() {
-    const data=  localStorage.getItem('usermail');
+   // const data=  localStorage.getItem('usermail');
     const type=  localStorage.getItem('usertype');
     const [student, setStudent] = useState(true);
 
     useEffect(() => {
-       if(type=='student')
+       if( localStorage.getItem('usertype')==='student')
        {
          setStudent(true);
        }
-       else if(type=='university-admin')
+       else if( localStorage.getItem('usertype')==='university-admin')
        { 
            setStudent(false);
        }

@@ -21,8 +21,7 @@ function HomeStudent() {
 
   function logOut()
   {  
-    localStorage.removeItem('usermail');
-    localStorage.removeItem('usertype');
+    localStorage.setItem('usertype','');
       history.push({
         pathname: '/login', 
       });

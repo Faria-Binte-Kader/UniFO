@@ -1,17 +1,53 @@
 import React from 'react'
 import './HomeUniversity.css'
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import  Axios from "axios";
 
 
 
 function HomeUniversity() {
+    let history = useHistory();
     const [title, setTitle] = useState("");
     const [details, setDeatils] = useState("");
+    const [modal, setModal] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();   
     }
+
+    const toggleModal = () => {
+        setModal(!modal);
+      };
+    
+      if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
+    
+      function logOut()
+      {  
+        localStorage.setItem('usertype','');
+          history.push({
+            pathname: '/login', 
+          });
+      }
+
+      const postNotices = () =>{
+        const data=  localStorage.getItem('usermail');
+        Axios.post('http://localhost:3001/notices',{
+            Email: data,
+            Title: title,
+             Details: details,}).then((response)=>{
+                  console.log(response);
+              })  
+              setTitle("");
+              setDeatils("");
+              history.push({
+                pathname: '/homeuniversity', 
+              }); 
+      };
     return (
         <div className='UniHomeContainer'>
             <div className="header">
@@ -19,10 +55,14 @@ function HomeUniversity() {
             <span ><Link to={{ pathname: "/edituniinfo"}}>Edit Profile</Link></span><br/><br/>
             <span ><Link to={{ pathname: "/uniprofile"}}>Profile</Link></span><br/><br/>
             <span ><Link to={{ pathname: "/uniprofile"}}>My Posts</Link></span>
+            <span > <button onClick={toggleModal} className="btn-modal">
+             Log Out
+            </button></span>
             </div>
             <div className="rightside">
             <form className='postform' id='postform' onSubmit={(e)=>{
-              handleSubmit(e); }}>
+              handleSubmit(e);
+              postNotices(); }}>
              <h1>
                  Post notices here!
              </h1>
@@ -46,6 +86,26 @@ function HomeUniversity() {
         </div>
              <button className='postbtn'>POST</button>
        </form>
+       {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <h2>Log Out</h2>
+            <p>
+              Are you sure you want to log out?
+            </p>
+            <button className="close-modal" onClick={toggleModal}>
+              X
+            </button>
+            <button className="no-modal" onClick={toggleModal}>
+              NO
+            </button>
+            <button className="yes-modal" onClick={logOut}>
+              YES
+            </button>
+          </div>
+        </div>
+      )}
             </div>
             </div>
             <div className="unibody"></div>

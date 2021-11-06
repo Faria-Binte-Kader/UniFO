@@ -34,7 +34,7 @@ function Navbar() {
                </div>
                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                    <li className='nav-item'>
-                    {localStorage.getItem("usermail") === null?
+                    {localStorage.getItem("usertype") === ''?
                        (<Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>):
                         (<Link to='/homeuser' className='nav-links' onClick={closeMobileMenu}>Home</Link>)}
                    </li>

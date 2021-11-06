@@ -60,10 +60,10 @@ function UniList() {
     }*/
 
     const HandleSearchAll = (name, location, type) => {
-        if (name == "" && (location == "" || location == "Choose Location") && (type == "" || type == "Choose Type")) {
+        if (name === "" && (location ==- "" || location === "Choose Location") && (type === "" || type === "Choose Type")) {
             getAllUniversitySortDown();
         }
-        else if (name != "" && (location == "" || location == "Choose Location") && (type == "" || type == "Choose Type")) {
+        else if (name !== "" && (location === "" || location === "Choose Location") && (type === "" || type === "Choose Type")) {
             Axios.post('http://localhost:3001/uniListSearchName', {
                 Name: name
             }).then((response) => {
@@ -71,7 +71,7 @@ function UniList() {
                 //console(response.data);
             })
         }
-        else if(name == "" && (location != "" && location != "Choose Location") && (type == "" || type == "Choose Type")){
+        else if(name === "" && (location !== "" && location !== "Choose Location") && (type === "" || type === "Choose Type")){
             Axios.post('http://localhost:3001/uniListSearchLocation', {
                 Location: location
             }).then((response) => {
@@ -79,7 +79,7 @@ function UniList() {
                 //console(response.data);
             })
         }
-        else if(name != "" && (location != "" && location != "Choose Location") && (type == "" || type == "Choose Type")){
+        else if(name !== "" && (location !== "" && location !== "Choose Location") && (type === "" || type === "Choose Type")){
             Axios.post('http://localhost:3001/uniListSearchNameLocation', {
                 Name: name,
                 Location:location
