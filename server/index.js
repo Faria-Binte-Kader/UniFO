@@ -93,6 +93,28 @@ app.post("/editstudentinfo", (req, res) => {
     });
 });
 
+app.post("/edituniinfo", (req, res) => {
+    const Name = req.body.Name;
+    const Email = req.body.email;
+    const District = req.body.District;
+    const Website = req.body.Website;
+    const General = req.body.General;
+    const Duration = req.body.Duration;
+    const Tuition = req.body.Tuition;
+    const Scholarship = req.body.Scholarship;
+    const Admissiondate = req.body.Admissiondate;
+
+    db.query("UPDATE university_info SET Name=(?), District=(?), Website=(?), General=(?), Duration=(?), Tuition=(?), Scholarship=(?), Admissiondate=(?) WHERE Email=(?)",
+    [Name,District,Website,General,Duration,Tuition,Scholarship,Admissiondate,Email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+
+    db.query("UPDATE users SET Name=(?) WHERE Email=(?)",
+    [Name,Email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
 app.post("/uniList", (req, res) => {
     db.query("SELECT * FROM all_universities", (error, results) => {
         if (error)  return console.error(error.message);

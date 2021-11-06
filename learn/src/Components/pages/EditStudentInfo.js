@@ -49,8 +49,8 @@ function EditStudentInfo(props) {
     };
 
     return (
-      <div className="backgroundcontainer">
-      <Col className="profilecontainer" style={{alignItems: "center"}}>
+      <div className="editbackgroundcontainer">
+      <Col className="editprofilecontainer" style={{alignItems: "center"}}>
         <h1 style={{fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px"}}>Edit Profile</h1>
               <Form onSubmit={(e)=>{
               handleSubmit(e);
@@ -62,7 +62,7 @@ function EditStudentInfo(props) {
               }}>
                 <Form.Group controlId="name">
                 <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Name</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Name</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -76,7 +76,7 @@ function EditStudentInfo(props) {
 
                 <Form.Group controlId="district">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>District</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>District</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -90,7 +90,7 @@ function EditStudentInfo(props) {
 
                 <Form.Group controlId="fathername">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Father's Name</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Father's Name</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -104,7 +104,7 @@ function EditStudentInfo(props) {
 
                 <Form.Group controlId="mothername">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Mother's Name</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Mother's Name</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -118,7 +118,7 @@ function EditStudentInfo(props) {
 
                 <Form.Group controlId="gender">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Gender</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Gender</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -132,7 +132,7 @@ function EditStudentInfo(props) {
 
                 <Form.Group controlId="dob">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Date of Birth</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Date of Birth</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -146,7 +146,7 @@ function EditStudentInfo(props) {
                 
                 <Form.Group controlId="blood">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Blood Type</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Blood Type</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}
@@ -160,7 +160,7 @@ function EditStudentInfo(props) {
                 
                 <Form.Group controlId="address">
                   <Row>
-                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px"}}>Address</Form.Label>
+                  <Form.Label style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black"}}>Address</Form.Label>
                   </Row>
                   <Row>
                   <Form.Control style={{fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2"}}

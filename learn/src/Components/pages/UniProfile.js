@@ -19,25 +19,6 @@ function UniProfile(props) {
   const [admissiondate, setAdmissiondate] = useState("");
   const [listOfDepartment, setDepartmentlist] = useState([]);
 
-  /*const showdepartment = (name) =>{
-    Axios.post('http://localhost:3001/departmentinfo')
-    .then((response)=>{
-              if(response.data.message)
-              {}
-              else{
-                console.log(response.data);
-              if(response.data[0].Name===name)
-              { history.push({
-                pathname: '/departmentdetails',
-                data: name
-              });}
-              else{
-              }
-            }
-              //console.log(response.data);
-          })   
-  };*/
-
   useEffect(() => {
     getUniversityInfo();
     getAllDepartment();
@@ -68,8 +49,8 @@ function UniProfile(props) {
 };
 
   return (
-    <div className="backgroundcontainer">
-      <Col className="profilecontainer" style={{alignItems: "center"}}>
+    <div className="unibackgroundcontainer">
+      <Col className="uniprofilecontainer" style={{alignItems: "center"}}>
         <h1 style={{fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px"}}>{name}</h1>
         <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link>{website}</Link></h1>
         <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{district}</h1>
@@ -123,6 +104,7 @@ function UniProfile(props) {
                 <br></br>
               </Row>
             </Col>
+            <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/edituniinfo", data: data }}><u>Edit Profile</u></Link></h3>
       </Col>
     </div>
   );
