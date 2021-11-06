@@ -10,6 +10,7 @@ import UserProfile from './Components/pages/UserProfile';
 import SignUp from './Components/pages/SignUp';
 import UniProfile from './Components/pages/UniProfile';
 import EditUniInfo from './Components/pages/EditUniInfo';
+import EditDeptInfo from './Components/pages/EditDeptInfo';
 import EditStudentInfo from './Components/pages/EditStudentInfo';
 import Departmentdetails from './Components/pages/Departmentdetails';
 import HomeUniversity from './Components/pages/HomeUniversity';
@@ -33,6 +34,7 @@ function App() {
         <Route path='/userprofile' component={UserProfile}/>
         <Route path='/uniprofile' component={UniProfile}/>
         <Route path='/edituniinfo' component={EditUniInfo}/>
+        <Route path='/editdeptinfo' component={EditDeptInfo}/>
         <Route path='/editstudentinfo' component={EditStudentInfo}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>

@@ -12,12 +12,13 @@ function UniProfile(props) {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [website, setWebsite] = useState("");
-  const [district, setDistrict] = useState("");
+  const [location, setLocation] = useState("");
   const [general, setGeneral] = useState("");
   const [duration, setDuration] = useState("");
   const [tuition, setTuition] = useState("");
   const [scholarship, setScholarship] = useState("");
   const [admissiondate, setAdmissiondate] = useState("");
+  const [type, setType] = useState("");
   const [listOfDepartment, setDepartmentlist] = useState([]);
 
   useEffect(() => {
@@ -31,13 +32,14 @@ function UniProfile(props) {
     }).then((response) => {
       setName(response.data[0].Name);
       setMail(response.data[0].Email);
-      setDistrict(response.data[0].District);
+      setLocation(response.data[0].Location);
       setWebsite(response.data[0].Website);
       setGeneral(response.data[0].General);
       setDuration(response.data[0].Duration);
       setTuition(response.data[0].Tuition);
       setScholarship(response.data[0].Scholarship);
       setAdmissiondate(response.data[0].Admissiondate);
+      setType(response.data[0].Type);
     })
   };
 
@@ -54,7 +56,7 @@ function UniProfile(props) {
       <Col className="uniprofilecontainer" style={{alignItems: "center"}}>
         <h1 style={{fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px"}}>{name}</h1>
         <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link>{website}</Link></h1>
-        <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{district}</h1>
+        <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{location}</h1>
             <Col>
               <Row>
                 <br></br>
@@ -91,6 +93,12 @@ function UniProfile(props) {
                 <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{admissiondate}</h3>
               </Row>
               <Row>
+                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Type</h3>
+              </Row>
+              <Row>
+                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{type}</h3>
+              </Row>
+              <Row>
                 <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Department List</h3>
               </Row>
               <Row>
@@ -105,8 +113,7 @@ function UniProfile(props) {
                 <br></br>
               </Row>
             </Col>
-            <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/edituniinfo", data: data }}><u>Edit Profile</u></Link></h3>
-      </Col>
+        </Col>
     </div>
   );
 }

@@ -101,8 +101,7 @@ function UserProfile(props) {
                 <br></br>
               </Row>
             </Col>
-        <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/editstudentinfo", data: data }}><u>Edit Profile</u></Link></h3>
-      </Col>
+        </Col>
     </div>
   );
 }
