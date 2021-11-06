@@ -5,7 +5,9 @@ import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
 function EditUniInfo(props) {
-  const { data } = props.location;
+  //const { data } = props.location;
+  const data=  localStorage.getItem('usermail');
+  const type=  localStorage.getItem('usertype');
   let history = useHistory();
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
@@ -179,6 +181,7 @@ function EditUniInfo(props) {
       </Col>
     </div>
   );
+  /*
   const data=  localStorage.getItem('usermail');
   const type=  localStorage.getItem('usertype');
    
@@ -193,7 +196,7 @@ function EditUniInfo(props) {
             <h1>Edit Uni Info</h1>
             </div>
         </div>
-      );
+      );*/
 }
 
 export default EditUniInfo

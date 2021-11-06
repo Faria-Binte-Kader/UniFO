@@ -323,6 +323,17 @@ app.post("/notices", (req, res) => {
     });
 });
 
+app.post("/uniprofilescreen", (req, res) => {
+    const Email = req.body.Email;
+
+    db.query("SELECT * FROM university_info WHERE Email=(?)",
+        [Email], (error, results) => {
+            if (error) { res.send({ err: err }) }
+            res.send(results);
+
+        });
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 
