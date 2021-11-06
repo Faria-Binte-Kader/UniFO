@@ -24,6 +24,7 @@ function Login() {
                   else{
                    localStorage.setItem('usermail', values.email);
                    localStorage.setItem('usertype',response.data[0].type);
+                   localStorage.setItem('username',response.data[0].name);
                     console.log(localStorage.getItem('usertype'));
                   if(response.data[0].type==='student')
                   { history.push({

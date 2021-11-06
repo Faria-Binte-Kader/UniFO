@@ -1,65 +1,61 @@
-import "./EditDeptInfo.css";
+import "./AddDept.css";
 import React, { useEffect, useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
-function EditDeptInfo(props) {
+function AddDept(props) {
   const { data } = props.location;
   const maildata = localStorage.getItem('usermail');
+  const namedata = localStorage.getItem('username');
   let history = useHistory();
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [programs, setPrograms] = useState("");
+  const [university, setUniversity] = useState("");
 
   useEffect(() => {
-    getDepartmentInfo();
+    
   }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
   }
 
-  const getDepartmentInfo = () => {
-    setName(data[0].Name)
-    Axios.post('http://localhost:3001/departmentdetails', {
-      Email: maildata, Name: data[0].Name
-    }).then((response) => {
-      setAbout(response.data[0].About);
-      setPrograms(response.data[0].Programs);
-    })
-  };
-
-  const UpdateDepartmentInfo = () => {
-    setName(name)
-    Axios.post('http://localhost:3001/editdeptinfo', {
-      Name: name, About: about, Programs: programs, email: maildata
-    }).then((response) => {
-      console.log(response);
-    })
-  };
-
-  const DeleteDepartmentInfo = () => {
-    setName(name)
-    Axios.post('http://localhost:3001/deletedeptinfo', {
-      Name: name, email: maildata
+  const AddDepartmentInfo = () => {
+    Axios.post('http://localhost:3001/adddeptinfo', {
+      Name: name, About: about, Programs: programs, University: namedata, email: maildata
     }).then((response) => {
       console.log(response);
     })
   };
 
   return (
-    <div className="editdeptbackgroundcontainer">
-      <Col className="editdeptprofilecontainer" style={{ alignItems: "center" }}>
-        <h1 style={{ fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px" }}>{name}</h1>
+    <div className="adddeptbackgroundcontainer">
+      <Col className="adddeptprofilecontainer" style={{ alignItems: "center" }}>
+        <h1 style={{ fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px" }}>Add Department</h1>
         <Form onSubmit={(e) => {
           handleSubmit(e);
-          UpdateDepartmentInfo();
+          AddDepartmentInfo();
           history.push({
             pathname: '/edituniinfo',
             data: data
           });
         }}>
+            <Form.Group controlId="name">
+            <Row>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Name</Form.Label>
+            </Row>
+            <Row>
+              <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
+                type="text"
+                placeholder="Enter Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
+            </Row>
+          </Form.Group>
+
           <Form.Group controlId="about">
             <Row>
               <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>About</Form.Label>
@@ -90,19 +86,7 @@ function EditDeptInfo(props) {
 
           <Row style={{ marginLeft: "150px" }}>
             <Button type="submit" style={{ height: "36px", width: "400px", backgroundColor: "white", fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", backgroundColor: "#E7E2E2" }}>
-              Update
-            </Button>
-          </Row>
-
-          <Row style={{ marginLeft: "150px" }}>
-            <Button onClick={() => {
-              DeleteDepartmentInfo();
-              history.push({
-                pathname: '/edituniinfo',
-                data: data
-              });
-            }} style={{ height: "36px", width: "400px", backgroundColor: "white", fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", backgroundColor: "#E7E2E2" }}>
-              Delete
+              Add
             </Button>
           </Row>
         </Form>
@@ -111,4 +95,4 @@ function EditDeptInfo(props) {
   );
 }
 
-export default EditDeptInfo
+export default AddDept

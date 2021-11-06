@@ -54,7 +54,7 @@ app.post("/login", (req, res) => {
     const Password = req.body.password;
     const Email = req.body.email;
 
-    db.query("SELECT email, password, type FROM users WHERE email = (?) AND password = (?)",
+    db.query("SELECT name, email, password, type FROM users WHERE email = (?) AND password = (?)",
     [Email,Password], (error, results) => {
         if (error)  {res.send({err: err})}
             if(results.length>0)
@@ -124,6 +124,29 @@ app.post("/editdeptinfo", (req, res) => {
 
     db.query("UPDATE department_info SET About=(?), Programs=(?) WHERE Email=(?) AND Name=(?)",
     [About,Programs,Email,Name], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
+app.post("/adddeptinfo", (req, res) => {
+    const Name = req.body.Name;
+    const Email = req.body.email;
+    const About = req.body.About;
+    const Programs = req.body.Programs;
+    const University = req.body.University;
+
+    db.query("INSERT INTO department_info (Name,University,About,Programs,email) VALUES (?,?,?,?,?)",
+    [Name,University,About,Programs,Email], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
+app.post("/deletedeptinfo", (req, res) => {
+    const Name = req.body.Name;
+    const Email = req.body.email;
+
+    db.query("Delete FROM department_info WHERE Email=(?) AND Name=(?)",
+    [Email,Name], (error, results) => {
         if (error)  return console.log(error.message);
     });
 });

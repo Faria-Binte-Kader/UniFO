@@ -194,13 +194,13 @@ function EditUniInfo(props) {
               <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Department List</Form.Label>
             </Row>
             <Row>
-              <h3 style={{ fontSize: 12, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E" }}><span ><Link to={{ pathname: "/edituniinfo" }}>Add Department</Link></span></h3>
+              <h3 style={{ fontSize: 12, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E" }}><span ><Link to={{ pathname: "/adddeptinfo" }}>Add Department</Link></span></h3>
             </Row>
             <Row>
               {listOfDepartment.map((values, key) => {
                 return (
                   <Row>
-                    <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/editdeptinfo", data: [{Name: values.Name, University: values.University, About: values.About, Programs: values.Programs}]}}>{values.Name}</Link></h3>
+                    <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E"}}><Link to={{ pathname: "/editdeptinfo", data: [{Name: values.Name, University: values.University, About: values.About, Programs: values.Programs}]}}>{values.Name}</Link></h3>
                   </Row>
                 )
               })}
