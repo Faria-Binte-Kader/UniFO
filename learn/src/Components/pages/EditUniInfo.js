@@ -200,7 +200,7 @@ function EditUniInfo(props) {
               {listOfDepartment.map((values, key) => {
                 return (
                   <Row>
-                    <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E"}}><Link to={{ pathname: "/editdeptinfo", data: [{Name: values.Name, University: values.University, About: values.About, Programs: values.Programs}]}}>{values.Name}</Link></h3>
+                    <h3 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E" }}><Link to={{ pathname: "/editdeptinfo", data: [{ Name: values.Name, University: values.University, About: values.About, Programs: values.Programs }] }}>{values.Name}</Link></h3>
                   </Row>
                 )
               })}

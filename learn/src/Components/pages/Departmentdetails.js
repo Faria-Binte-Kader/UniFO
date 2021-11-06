@@ -17,43 +17,43 @@ function Departmentdetails(props) {
   const [deptprog, setDeptprog] = useState("");
 
   useEffect(() => {
-    
-    }, []);
 
-    const handleSubmit = e => {
-      e.preventDefault();   
+  }, []);
+
+  const handleSubmit = e => {
+    e.preventDefault();
   }
 
   return (
     <div className="backgroundcontainer">
-    <Col className="profilecontainer" style={{alignItems: "center"}}>
-      <h1 style={{fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px"}}>{data[0].Name}</h1>
-      <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{data[0].University}</h1>
-          <Col>
-            <Row>
-              <br></br>
-              <p style={{fontSize: 18, fontFamily: "Times New Roman"}}>______________________________________________________________________</p>
-            </Row>
-            <Row>
-              <p style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>About</p>
-            </Row>
-            <Row>
-              <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{data[0].About}</h3>
-            </Row>
-            <Row>
-              <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Programs</h3>
-            </Row>
-            <Row>
-              <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{data[0].Programs}</h3>
-            </Row>
-            <Row>
-              <p style={{fontSize: 18, fontFamily: "Times New Roman"}}>______________________________________________________________________</p>
-              <br></br>
-            </Row>
-          </Col>
-    </Col>
-  </div>
-    );
+      <Col className="profilecontainer" style={{ alignItems: "center" }}>
+        <h1 style={{ fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px" }}>{data[0].Name}</h1>
+        <h1 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{data[0].University}</h1>
+        <Col>
+          <Row>
+            <br></br>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman" }}>______________________________________________________________________</p>
+          </Row>
+          <Row>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>About</p>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{data[0].About}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Programs</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{data[0].Programs}</h3>
+          </Row>
+          <Row>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman" }}>______________________________________________________________________</p>
+            <br></br>
+          </Row>
+        </Col>
+      </Col>
+    </div>
+  );
 }
 
 export default Departmentdetails

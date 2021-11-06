@@ -1,8 +1,8 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import validateInfoLogin from "./validateInfoLogin";
-import  Axios from "axios";
+import Axios from "axios";
 
-const useLoginForm = validateInfoLogin =>{
+const useLoginForm = validateInfoLogin => {
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -11,7 +11,7 @@ const useLoginForm = validateInfoLogin =>{
     const [errors, setErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleChange = e =>{
+    const handleChange = e => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -21,11 +21,11 @@ const useLoginForm = validateInfoLogin =>{
     const handleSubmit = e => {
         e.preventDefault();
         setErrors(validateInfoLogin(values));
-        setIsSubmitted(true); 
-       
+        setIsSubmitted(true);
+
     }
 
-    return { handleChange, values, handleSubmit, errors};
+    return { handleChange, values, handleSubmit, errors };
 
 };
 

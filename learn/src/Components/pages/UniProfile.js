@@ -8,7 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 function UniProfile(props) {
   let history = useHistory();
   //const { data } = props.location;
-  const data=  localStorage.getItem('usermail');
+  const data = localStorage.getItem('usermail');
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [website, setWebsite] = useState("");
@@ -47,73 +47,73 @@ function UniProfile(props) {
     Axios.post('http://localhost:3001/departmentinfo', {
       email: data
     }).then((response) => {
-        setDepartmentlist(response.data);
+      setDepartmentlist(response.data);
     })
-};
+  };
 
   return (
     <div className="unibackgroundcontainer">
-      <Col className="uniprofilecontainer" style={{alignItems: "center"}}>
-        <h1 style={{fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px"}}>{name}</h1>
-        <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link>{website}</Link></h1>
-        <h1 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{location}</h1>
-            <Col>
-              <Row>
-                <br></br>
-                <p style={{fontSize: 18, fontFamily: "Times New Roman"}}>______________________________________________________________________</p>
-              </Row>
-              <Row>
-                <p style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>General</p>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{general}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Duration</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{duration}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Tuition</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{tuition}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Scholarship</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{scholarship}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Admission Date</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{admissiondate}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Type</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px"}}>{type}</h3>
-              </Row>
-              <Row>
-                <h3 style={{fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px"}}>Department List</h3>
-              </Row>
-              <Row>
-                {listOfDepartment.map((values, key) => {
-                  return (
-                      <h3 style={{fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E"}}><Link to={{ pathname: "/departmentdetails", data: [{Name: values.Name, University: values.University, About: values.About, Programs: values.Programs}]}}>{values.Name}</Link></h3>
-                  )
-                })}  
-              </Row>
-              <Row>
-                <p style={{fontSize: 18, fontFamily: "Times New Roman"}}>______________________________________________________________________</p>
-                <br></br>
-              </Row>
-            </Col>
+      <Col className="uniprofilecontainer" style={{ alignItems: "center" }}>
+        <h1 style={{ fontSize: 36, fontFamily: "Times New Roman", fontWeight: "bold", marginBottom: "10px" }}>{name}</h1>
+        <h1 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E" }}><Link>{website}</Link></h1>
+        <h1 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{location}</h1>
+        <Col>
+          <Row>
+            <br></br>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman" }}>______________________________________________________________________</p>
+          </Row>
+          <Row>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>General</p>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{general}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Duration</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{duration}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Tuition</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{tuition}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Scholarship</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{scholarship}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Admission Date</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{admissiondate}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Type</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 14, fontFamily: "Times New Roman", fontWeight: "400", marginTop: "10px" }}>{type}</h3>
+          </Row>
+          <Row>
+            <h3 style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "600", marginTop: "10px" }}>Department List</h3>
+          </Row>
+          <Row>
+            {listOfDepartment.map((values, key) => {
+              return (
+                <h3 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", color: "#222F6E" }}><Link to={{ pathname: "/departmentdetails", data: [{ Name: values.Name, University: values.University, About: values.About, Programs: values.Programs }] }}>{values.Name}</Link></h3>
+              )
+            })}
+          </Row>
+          <Row>
+            <p style={{ fontSize: 18, fontFamily: "Times New Roman" }}>______________________________________________________________________</p>
+            <br></br>
+          </Row>
         </Col>
+      </Col>
     </div>
   );
 }

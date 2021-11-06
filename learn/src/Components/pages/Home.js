@@ -5,12 +5,12 @@ import HeroSection from '../HeroSection'
 
 
 function Home() {
-    return (
-        <>
-          <HeroSection/>
-          <Cards/>  
-        </>
-    )
+  return (
+    <>
+      <HeroSection />
+      <Cards />
+    </>
+  )
 }
 
 export default Home

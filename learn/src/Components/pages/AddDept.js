@@ -15,7 +15,7 @@ function AddDept(props) {
   const [university, setUniversity] = useState("");
 
   useEffect(() => {
-    
+
   }, []);
 
   const handleSubmit = e => {
@@ -42,7 +42,7 @@ function AddDept(props) {
             data: data
           });
         }}>
-            <Form.Group controlId="name">
+          <Form.Group controlId="name">
             <Row>
               <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Name</Form.Label>
             </Row>
