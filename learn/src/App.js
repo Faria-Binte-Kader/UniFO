@@ -18,6 +18,7 @@ import HomeUniversity from './Components/pages/HomeUniversity';
 import HomeStudent from './Components/pages/HomeStudent';
 import HomeUser from './Components/pages/HomeUser';
 import UniProfileScreen from './Components/pages/UniProfileScreen';
+import NoticeDetails from './Components/pages/NoticeDetails';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/departmentdetails' component={Departmentdetails}/>
+        <Route path='/noticedetails' component={NoticeDetails}/>
         <Route path='/uniprofilescreen' component={UniProfileScreen}/>
       </Switch>
       </Router>

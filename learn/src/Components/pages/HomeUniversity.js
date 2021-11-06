@@ -1,6 +1,9 @@
 import React from 'react'
 import './HomeUniversity.css'
 import { Link, useHistory  } from 'react-router-dom';
+import CardItem from '../CardItem'
+import img from '../../assets/iutimage.PNG';
+import img2 from '../../assets/buetimage.PNG';
 import { useEffect, useState } from "react";
 import  Axios from "axios";
 
@@ -8,9 +11,15 @@ import  Axios from "axios";
 
 function HomeUniversity() {
     let history = useHistory();
+    const [listOfNotices, setNotices] = useState([]);
     const [title, setTitle] = useState("");
     const [details, setDeatils] = useState("");
     const [modal, setModal] = useState(false);
+
+    useEffect(() => {
+      getNotices();
+  }, []);
+
 
     const handleSubmit = e => {
         e.preventDefault();   
@@ -19,6 +28,14 @@ function HomeUniversity() {
     const toggleModal = () => {
         setModal(!modal);
       };
+
+      const getNotices = () => {
+        Axios.post('http://localhost:3001/getNotices', {
+        }).then((response) => {
+            setNotices(response.data);
+            //console(response.data);
+        })
+    };
     
       if(modal) {
         document.body.classList.add('active-modal')
@@ -108,7 +125,27 @@ function HomeUniversity() {
       )}
             </div>
             </div>
-            <div className="unibody"></div>
+            <div className="unibody">
+            <h1>Recent Updates</h1>
+            {listOfNotices.map((values, key) => {
+                return (
+                    <div className='cards__container_uni'>
+                      <div className='cards__wrapper'>
+                           <ul className='cards__items_uni'
+                            onClick={() => {
+                              localStorage.setItem('noticeID', values.ID);
+                          }}>
+                                    <CardItem
+                                        src={values.imageURL}
+                                        text={values.Title}
+                                        label='University_preview_card'
+                                        path='/noticedetails' />
+                                </ul>
+                            </div>
+                     </div>
+                )
+            })}
+            </div>
         </div>
     )
 }
