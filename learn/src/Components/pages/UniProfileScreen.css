@@ -1,0 +1,78 @@
+.UniProfileScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .information {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  input {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 5px;
+  
+  }
+  
+   button {
+    width: 320px;
+    height: 50px;
+    margin-top: 15px;
+  } 
+  
+   button:hover {
+    cursor: pointer;
+  }
+  
+  .users {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .user {
+    width: 700px;
+    height: auto;
+    border: 1px solid black;
+    margin: 10px;
+    display: flex;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .user h3 {
+    margin: 20px;
+  }
+
+  .profilecontainer {
+    position: relative;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background: rgba(180, 179, 179, 0.829);
+    border-radius: 20px;
+   }
+  
+   .backgroundcontainer {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     background: url('../../assets/background.png') center center/cover no-repeat;
+   }

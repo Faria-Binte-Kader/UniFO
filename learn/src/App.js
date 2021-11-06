@@ -10,11 +10,13 @@ import UserProfile from './Components/pages/UserProfile';
 import SignUp from './Components/pages/SignUp';
 import UniProfile from './Components/pages/UniProfile';
 import EditUniInfo from './Components/pages/EditUniInfo';
+import EditDeptInfo from './Components/pages/EditDeptInfo';
 import EditStudentInfo from './Components/pages/EditStudentInfo';
 import Departmentdetails from './Components/pages/Departmentdetails';
 import HomeUniversity from './Components/pages/HomeUniversity';
 import HomeStudent from './Components/pages/HomeStudent';
 import HomeUser from './Components/pages/HomeUser';
+import UniProfileScreen from './Components/pages/UniProfileScreen';
 
 
 function App() {
@@ -32,10 +34,12 @@ function App() {
         <Route path='/userprofile' component={UserProfile}/>
         <Route path='/uniprofile' component={UniProfile}/>
         <Route path='/edituniinfo' component={EditUniInfo}/>
+        <Route path='/editdeptinfo' component={EditDeptInfo}/>
         <Route path='/editstudentinfo' component={EditStudentInfo}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/departmentdetails' component={Departmentdetails}/>
+        <Route path='/uniprofilescreen' component={UniProfileScreen}/>
       </Switch>
       </Router>
     </>

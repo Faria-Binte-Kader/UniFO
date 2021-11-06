@@ -116,6 +116,18 @@ app.post("/edituniinfo", (req, res) => {
     });
 });
 
+app.post("/editdeptinfo", (req, res) => {
+    const Name = req.body.Name;
+    const Email = req.body.email;
+    const About = req.body.About;
+    const Programs = req.body.Programs;
+
+    db.query("UPDATE department_info SET About=(?), Programs=(?) WHERE Email=(?) AND Name=(?)",
+    [About,Programs,Email,Name], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
 app.post("/uniList", (req, res) => {
     db.query("SELECT * FROM university_info", (error, results) => {
         if (error)  return console.error(error.message);
@@ -322,6 +334,17 @@ app.post("/notices", (req, res) => {
     [email, title, details], (error, results) => {
         if (error)  return console.log(error.message);
     });
+});
+
+app.post("/uniprofilescreen", (req, res) => {
+    const Email = req.body.Email;
+
+    db.query("SELECT * FROM university_info WHERE Email=(?)",
+        [Email], (error, results) => {
+            if (error) { res.send({ err: err }) }
+            res.send(results);
+
+        });
 });
 
 var allUniversityList = "All University";
