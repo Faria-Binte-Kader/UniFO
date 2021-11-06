@@ -5,18 +5,22 @@ import Axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
 function EditUniInfo(props) {
-  const { data } = props.location;
+  //const { data } = props.location;
+  const data = localStorage.getItem('usermail');
   let history = useHistory();
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [website, setWebsite] = useState("");
-  const [district, setDistrict] = useState("");
+  const [location, setLocation] = useState("");
   const [general, setGeneral] = useState("");
   const [duration, setDuration] = useState("");
   const [tuition, setTuition] = useState("");
   const [scholarship, setScholarship] = useState("");
   const [admissiondate, setAdmissiondate] = useState("");
+  const [type, setType] = useState("");
   const [listOfDepartment, setDepartmentlist] = useState([]);
+
+  //const type=  localStorage.getItem('usertype');
 
   useEffect(() => {
     getUniversityInfo();
@@ -34,13 +38,14 @@ function EditUniInfo(props) {
     }).then((response) => {
       setName(response.data[0].Name);
       setMail(response.data[0].Email);
-      setDistrict(response.data[0].District);
+      setLocation(response.data[0].Location);
       setWebsite(response.data[0].Website);
       setGeneral(response.data[0].General);
       setDuration(response.data[0].Duration);
       setTuition(response.data[0].Tuition);
       setScholarship(response.data[0].Scholarship);
       setAdmissiondate(response.data[0].Admissiondate);
+      setType(response.data[0].Type);
     })
   };
 
@@ -54,7 +59,7 @@ function EditUniInfo(props) {
 
   const UpdateUniversityInfo = () => {
     Axios.post('http://localhost:3001/edituniinfo', {
-      Name: name, District: district, Website: website, General: general, Duration: duration, Tuition: tuition, Scholarship: scholarship, Admissiondate: admissiondate, email: data
+      Name: name, Location: location, Website: website, General: general, Duration: duration, Tuition: tuition, Scholarship: scholarship, Admissiondate: admissiondate, Type: type, email: data
     }).then((response) => {
       console.log(response);
     })
@@ -74,7 +79,7 @@ function EditUniInfo(props) {
         }}>
           <Form.Group controlId="name">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>Name</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Name</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -86,23 +91,23 @@ function EditUniInfo(props) {
             </Row>
           </Form.Group>
 
-          <Form.Group controlId="district">
+          <Form.Group controlId="location">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>District</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Location</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
                 type="text"
-                placeholder="Enter District"
-                value={district}
-                onChange={(e) => setDistrict(e.target.value)}
+                placeholder="Enter Location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
               ></Form.Control>
             </Row>
           </Form.Group>
 
           <Form.Group controlId="website">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>Website</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Website</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -116,7 +121,7 @@ function EditUniInfo(props) {
 
           <Form.Group controlId="general">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>General</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>General</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -130,7 +135,7 @@ function EditUniInfo(props) {
 
           <Form.Group controlId="duration">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>Duration</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Duration</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -144,7 +149,7 @@ function EditUniInfo(props) {
 
           <Form.Group controlId="tuition">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>Tuition</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Tuition</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -158,7 +163,7 @@ function EditUniInfo(props) {
 
           <Form.Group controlId="admissiondate">
             <Row>
-              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color:"black" }}>Admission date</Form.Label>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Admission date</Form.Label>
             </Row>
             <Row>
               <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
@@ -167,6 +172,38 @@ function EditUniInfo(props) {
                 value={admissiondate}
                 onChange={(e) => setAdmissiondate(e.target.value)}
               ></Form.Control>
+            </Row>
+          </Form.Group>
+
+          <Form.Group controlId="type">
+            <Row>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Type</Form.Label>
+            </Row>
+            <Row>
+              <Form.Control style={{ fontSize: 14, fontFamily: "Times New Roman", height: "30px", width: "700px", backgroundColor: "#E7E2E2" }}
+                type="text"
+                placeholder="Enter Type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              ></Form.Control>
+            </Row>
+          </Form.Group>
+
+          <Form.Group controlId="departmentlist">
+            <Row>
+              <Form.Label style={{ fontSize: 18, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "black" }}>Department List</Form.Label>
+            </Row>
+            <Row>
+              <h3 style={{ fontSize: 12, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E" }}><span ><Link to={{ pathname: "/edituniinfo" }}>Add Department</Link></span></h3>
+            </Row>
+            <Row>
+              {listOfDepartment.map((values, key) => {
+                return (
+                  <Row>
+                    <h3 style={{ fontSize: 16, fontFamily: "Times New Roman", fontWeight: "bold", marginTop: "10px", marginLeft: "10px", color: "#222F6E" }}><Link to={{ pathname: "/editdeptinfo" }}>{values.Name}</Link></h3>
+                  </Row>
+                )
+              })}
             </Row>
           </Form.Group>
 
@@ -179,21 +216,6 @@ function EditUniInfo(props) {
       </Col>
     </div>
   );
-  const data=  localStorage.getItem('usermail');
-  const type=  localStorage.getItem('usertype');
-   
-    useEffect(() => {
-    
-      }, []);
-
-
-      return (
-        <div className="edit-uni-info">
-            <div>
-            <h1>Edit Uni Info</h1>
-            </div>
-        </div>
-      );
 }
 
 export default EditUniInfo

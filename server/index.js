@@ -30,7 +30,7 @@ app.post("/user", (req, res) => {
 app.post("/uniuser", (req, res) => {
     const Email = req.body.email;
 
-    db.query("SELECT users.name, users.Email, university_info.Name, university_info.Website, university_info.District, university_info.General, university_info.Duration, university_info.Tuition, university_info.Scholarship, university_info.Admissiondate FROM users, university_info WHERE users.Email=university_info.Email AND users.Email=(?)",
+    db.query("SELECT users.name, users.Email, university_info.Name, university_info.Website, university_info.Location, university_info.General, university_info.Duration, university_info.Tuition, university_info.Scholarship, university_info.Admissiondate, university_info.Type FROM users, university_info WHERE users.Email=university_info.Email AND users.Email=(?)",
     [Email], (error, results) => {
         if (error)  {res.send({err: err})}
             res.send(results);
@@ -96,16 +96,17 @@ app.post("/editstudentinfo", (req, res) => {
 app.post("/edituniinfo", (req, res) => {
     const Name = req.body.Name;
     const Email = req.body.email;
-    const District = req.body.District;
+    const Location = req.body.Location;
     const Website = req.body.Website;
     const General = req.body.General;
     const Duration = req.body.Duration;
     const Tuition = req.body.Tuition;
     const Scholarship = req.body.Scholarship;
     const Admissiondate = req.body.Admissiondate;
+    const Type = req.body.Type;
 
-    db.query("UPDATE university_info SET Name=(?), District=(?), Website=(?), General=(?), Duration=(?), Tuition=(?), Scholarship=(?), Admissiondate=(?) WHERE Email=(?)",
-    [Name,District,Website,General,Duration,Tuition,Scholarship,Admissiondate,Email], (error, results) => {
+    db.query("UPDATE university_info SET Name=(?), Location=(?), Website=(?), General=(?), Duration=(?), Tuition=(?), Scholarship=(?), Admissiondate=(?), Type=(?) WHERE Email=(?)",
+    [Name,Location,Website,General,Duration,Tuition,Scholarship,Admissiondate,Type,Email], (error, results) => {
         if (error)  return console.log(error.message);
     });
 
@@ -153,7 +154,7 @@ app.post("/departmentdetails", (req, res) => {
 });
 
 app.post("/quickaccess", (req, res) => {
-    db.query("SELECT * FROM all_universities ORDER BY name LIMIT 4", (error, results) => {
+    db.query("SELECT * FROM university_info ORDER BY name LIMIT 4", (error, results) => {
         if (error)  return console.error(error.message);
         res.send(results);
     })
