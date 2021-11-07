@@ -30,22 +30,22 @@ function UniProfileScreen(props) {
 
   const addFavourite = () => {
     Axios.post('http://localhost:3001/favourites', {
-        Email: localStorage.getItem('usermail'),
-        UniMail: mail,
-        UniName: name,
-        Url: url
-    }).then((response) => {
-        console.log(response);
-    })
-};
-const deleteFavourite = () => {
-  Axios.post('http://localhost:3001/deletefavourites', {
       Email: localStorage.getItem('usermail'),
       UniMail: mail,
-  }).then((response) => {
+      UniName: name,
+      Url: url
+    }).then((response) => {
       console.log(response);
-  })
-};
+    })
+  };
+  const deleteFavourite = () => {
+    Axios.post('http://localhost:3001/deletefavourites', {
+      Email: localStorage.getItem('usermail'),
+      UniMail: mail,
+    }).then((response) => {
+      console.log(response);
+    })
+  };
 
   const getUniversityInfo = () => {
     Axios.post('http://localhost:3001/uniprofilescreen', {
@@ -76,20 +76,22 @@ const deleteFavourite = () => {
 
   const checkFavourite = () => {
     Axios.post('http://localhost:3001/checkfavourites', {
-        Email: localStorage.getItem('usermail'),
-        UniMail: data,
+      Email: localStorage.getItem('usermail'),
+      UniMail: data,
     }).then((response) => {
-      if(response.data.length===0){
+      if (response.data.length === 0) {
         console.log(response.data);
       }
-      else
-      {if(response.data[0].Email===localStorage.getItem('usermail')){
-        setIsClicked(true);}
+      else {
+        if (response.data[0].Email === localStorage.getItem('usermail')) {
+          setIsClicked(true);
+        }
       }
     })
   };
 
   const HandleClick = () => {
+    if (localStorage.getItem('usertype') != 'student' && localStorage.getItem('usertype') != 'Student') { { window.location.href = "/login"; } }
     setIsClicked(!isclicked);
     console.log(isclicked);
     if (isclicked === false) {
@@ -98,7 +100,7 @@ const deleteFavourite = () => {
     else {
       deleteFavourite();
     }
-}
+  }
 
   return (
     <div className="backgroundcontainer">
@@ -162,11 +164,11 @@ const deleteFavourite = () => {
             <br></br>
           </Row>
         </Col>
-        
+
         <div className="favourite" >
-         { isclicked? (<button className="favbtn" onClick={HandleClick}>Added</button>):(<button className="favbtn" onClick={HandleClick}>Add to favourites</button>)
-             }
-          </div>
+          {isclicked ? (<button className="favbtn" onClick={HandleClick}>Added</button>) : (<button className="favbtn" onClick={HandleClick}>Add to favourites</button>)
+          }
+        </div>
       </Col>
     </div>
   );
