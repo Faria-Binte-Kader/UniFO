@@ -88,12 +88,15 @@ body.active-modal {
     flex: 85%;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-       -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-       filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-       border-radius: 10px;
-       overflow: hidden;
        text-decoration: none;
        padding: 60px;
        margin-left: 10px;
+  }
+
+  .ru{
+      margin-left: 100px;
+  }
+
+  .mu{
+    margin-left: 100px;
   }

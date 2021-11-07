@@ -406,6 +406,50 @@ else{
 }
 });
 
+app.post("/favourites", (req, res) => {
+    const email = req.body.Email;
+    const unimail = req.body.UniMail;
+    const uniname = req.body.UniName;
+    const url= req.body.Url;
+
+    db.query("INSERT INTO favourites (Email, UniName, UniMail, imageURL) VALUES (?,?,?,?)",
+    [email, uniname, unimail, url], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
+app.post("/deletefavourites", (req, res) => {
+    const email = req.body.Email;
+    const unimail = req.body.UniMail;
+
+    db.query("DELETE FROM favourites WHERE Email=(?) AND UniMail=(?)",
+    [email, unimail], (error, results) => {
+        if (error)  return console.log(error.message);
+    });
+});
+
+app.post("/getfavourites", (req, res) => {
+    const email = req.body.Email;
+    console.log(email);
+
+    db.query("SELECT * FROM favourites where Email=(?)",
+    [email], (error, results) => {
+        if (error)  return console.log(error.message);
+        res.send(results);
+    });
+});
+
+app.post("/checkfavourites", (req, res) => {
+    const email = req.body.Email;
+    const umail = req.body.UniMail;
+
+    db.query("SELECT * FROM favourites where Email=(?) AND UniMail=(?)",
+    [email,umail], (error, results) => {
+        if (error)  return console.log(error.message);
+        res.send(results);
+    });
+});
+
 var allUniversityList = "All University";
 app.use(express.static(allUniversityList));
 

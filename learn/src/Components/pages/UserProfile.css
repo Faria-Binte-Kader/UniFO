@@ -4,6 +4,7 @@
   justify-content: center;
 }
 
+
 .information {
   display: flex;
   flex-direction: column;
@@ -58,7 +59,6 @@ input {
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 5%;
   margin-bottom: 5%;
   height: fit-content;
   display: flex;

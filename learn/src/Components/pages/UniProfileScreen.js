@@ -19,17 +19,39 @@ function UniProfileScreen(props) {
   const [scholarship, setScholarship] = useState("");
   const [admissiondate, setAdmissiondate] = useState("");
   const [type, setType] = useState("");
+  const [url, setUrl] = useState("");
   const [listOfDepartment, setDepartmentlist] = useState([]);
 
   useEffect(() => {
     getUniversityInfo();
     getAllDepartment();
+    checkFavourite();
   }, []);
+
+  const addFavourite = () => {
+    Axios.post('http://localhost:3001/favourites', {
+        Email: localStorage.getItem('usermail'),
+        UniMail: mail,
+        UniName: name,
+        Url: url
+    }).then((response) => {
+        console.log(response);
+    })
+};
+const deleteFavourite = () => {
+  Axios.post('http://localhost:3001/deletefavourites', {
+      Email: localStorage.getItem('usermail'),
+      UniMail: mail,
+  }).then((response) => {
+      console.log(response);
+  })
+};
 
   const getUniversityInfo = () => {
     Axios.post('http://localhost:3001/uniprofilescreen', {
       Email: data
     }).then((response) => {
+      console.log(response.data);
       setName(response.data[0].Name);
       setMail(response.data[0].Email);
       setLocation(response.data[0].Location);
@@ -40,6 +62,7 @@ function UniProfileScreen(props) {
       setScholarship(response.data[0].Scholarship);
       setAdmissiondate(response.data[0].Admissiondate);
       setType(response.data[0].Type);
+      setUrl(response.data[0].imageURL);
     })
   };
 
@@ -50,14 +73,30 @@ function UniProfileScreen(props) {
       setDepartmentlist(response.data);
     })
   };
+
+  const checkFavourite = () => {
+    Axios.post('http://localhost:3001/checkfavourites', {
+        Email: localStorage.getItem('usermail'),
+        UniMail: data,
+    }).then((response) => {
+      if(response.data.length===0){
+        console.log(response.data);
+      }
+      else
+      {if(response.data[0].Email===localStorage.getItem('usermail')){
+        setIsClicked(true);}
+      }
+    })
+  };
+
   const HandleClick = () => {
     setIsClicked(!isclicked);
     console.log(isclicked);
     if (isclicked === false) {
-
+      addFavourite();
     }
     else {
-      
+      deleteFavourite();
     }
 }
 
@@ -123,6 +162,11 @@ function UniProfileScreen(props) {
             <br></br>
           </Row>
         </Col>
+        
+        <div className="favourite" >
+         { isclicked? (<button className="favbtn" onClick={HandleClick}>Added</button>):(<button className="favbtn" onClick={HandleClick}>Add to favourites</button>)
+             }
+          </div>
       </Col>
     </div>
   );
