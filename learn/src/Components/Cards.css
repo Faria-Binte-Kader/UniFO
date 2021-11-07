@@ -1,10 +1,21 @@
 .cards {
-    padding: 4rem;
     background: #fff;
   }
   
   h1 {
     text-align: center;
+  }
+
+  .upperside{
+    margin-left: 200px;
+    margin-bottom: 800px;
+    align-items: center;
+    width:100%
+  }
+  .lowerside{
+    margin-left: 200px;
+    align-items: center;
+    width:100%
   }
   
   .cards__container {
@@ -13,7 +24,7 @@
     align-items: center;
     max-width: 1120px;
     width: 90%;
-    margin: 0 auto;
+    margin-left: 100px;
   }
 
   .cards__container__uni {
@@ -21,7 +32,7 @@
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
-    width: 90%;
+    width: 100%;
     margin-left: 100px;
   }
   

@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 
 function UniProfileScreen(props) {
   let history = useHistory();
+  const [isclicked, setIsClicked] = useState(false);
   const data = localStorage.getItem('uniEmailUniList');
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
@@ -49,6 +50,16 @@ function UniProfileScreen(props) {
       setDepartmentlist(response.data);
     })
   };
+  const HandleClick = () => {
+    setIsClicked(!isclicked);
+    console.log(isclicked);
+    if (isclicked === false) {
+
+    }
+    else {
+      
+    }
+}
 
   return (
     <div className="backgroundcontainer">

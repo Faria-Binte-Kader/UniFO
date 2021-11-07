@@ -48,6 +48,7 @@ const getNotices = () => {
           <div className="leftsidestudent">
             <span ><Link to={{ pathname: "/editstudentinfo" }}>Edit Profile</Link></span><br /><br />
             <span ><Link to={{ pathname: "/userprofile" }}>Profile</Link></span><br /><br />
+            <span ><Link to={{ pathname: "/seeallnotices" }}>All notices</Link></span><br /><br />
             <span > <button onClick={toggleModal} className="btn-modal">
               Log Out
             </button></span>

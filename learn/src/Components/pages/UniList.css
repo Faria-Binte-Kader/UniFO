@@ -3,11 +3,70 @@
   background: #fff;
 }
 
-h1 {
+.alluni {
   text-align: center;
+  margin-top: 30px;
 }
 
+.searchbar{
+ margin-left: 80px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  align-items: center;
+  margin-top: 20px;
+  display: flex;
+  float: left;
+height: 30px;
+}
+
+.selectloc{
+  margin-bottom: 40px;
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  float: right;
+height: 30px;
+background-color: transparent;
+
+}
+
+.selecttype{
+  margin-bottom: 40px; 
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  float: right;
+height: 30px;
+}
+
+
+.searchbar input{
+  width: 300px;
+  height: 30px;
+  border-width: 1px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.searchbar input::placeholder {
+  color: #000;
+  font-size: 15px;
+}
+
+.searchbar input.active {
+  border: none;
+  text-decoration-color: #000;
+}
+
+.fa-search{
+  color: #000;
+}
+
+
 .sortbtn{
+  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 30px;
   display: flex;
   float: right;
 flex-flow: row;
@@ -42,30 +101,21 @@ padding-left: 16px;
     color: #595959;
     display: block;
     padding-left: 10px;
-    outline: none;
     border-radius: 2px;
     height: 40px;
     width: 50%;
     border: none;
-    background: linear-gradient(
-      90deg,
-      rgb(0, 232, 236) 0%,
-      rgb(39, 176, 255) 100%)
   }
 
   .searchType{
     color: #595959;
     display: block;
     padding-left: 10px;
-    outline: none;
     border-radius: 2px;
     height: 40px;
     width: 50%;
     border: none;
-    background: linear-gradient(
-      90deg,
-      rgb(0, 232, 236) 0%,
-      rgb(39, 176, 255) 100%)
+  
   }
 
   .select{
@@ -73,6 +123,8 @@ padding-left: 16px;
     width: 80%;
     margin-bottom: 1rem;
     margin-left: 70px;
+    background: transparent;
+    border-width: 1px;
     
   }
 
@@ -82,7 +134,7 @@ padding-left: 16px;
   align-items: center;
   max-width: 300px;
   width: 90%;
-  margin: 0 auto;
+  margin: 100px;
 }
 
 .cards__wrapper {

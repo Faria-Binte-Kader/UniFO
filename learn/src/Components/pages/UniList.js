@@ -4,8 +4,6 @@ import Axios from "axios";
 import { BrowserRouter, Link, useHistory, Route } from 'react-router-dom';
 import CardItem from '../CardItem'
 import './UniList.css'
-import UniProfileScreen from './UniProfileScreen';
-import UniProfile from './UniProfile';
 
 function UniList() {
     let history = useHistory();
@@ -206,7 +204,7 @@ function UniList() {
     return (
 
         <div className="UniList">
-            <h1>All Universities</h1>
+            <h1 className="alluni">All Universities</h1>
 
             <div className='searchbar' >
                 <form className='searchform' onSubmit={(e) => {
@@ -227,7 +225,7 @@ function UniList() {
                 <p>SORT</p>
                 <i className={click ? 'fas fa-sort-up' : 'fas fa-sort-down'} />
             </div>
-            <div className='select'>
+            <div className='selectloc'>
                 <select className="searchLocation"
                     onChange={(e) => {
                         const selectedState = e.target.value;
@@ -245,7 +243,7 @@ function UniList() {
                 </select>
             </div>
 
-            <div className='select'>
+            <div className='selecttype'>
                 <select className="searchType"
                     onChange={(e) => {
                         const selectedState = e.target.value;

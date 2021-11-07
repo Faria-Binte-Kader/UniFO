@@ -371,7 +371,7 @@ app.post("/uniprofilescreen", (req, res) => {
 });
 
 app.post("/getNotices", (req, res) => {
-    db.query("SELECT notices.UniMail, notices.Title, notices.ID, notices.Details, university_info.Name, university_info.imageURL FROM notices, university_info WHERE notices.UniMail=university_info.Email",
+    db.query("SELECT notices.UniMail, notices.Title, notices.ID, notices.Details, university_info.Name, university_info.imageURL FROM notices, university_info WHERE notices.UniMail=university_info.Email ORDER BY notices.ID DESC",
         (error, results) => {
             if (error) return console.error(error.message);
             res.send(results);

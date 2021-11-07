@@ -4,6 +4,22 @@
     justify-content: center;
   }
   
+  .fa-star{
+    color: #fff;
+  }
+
+  .favourite{
+   justify-content: right;
+   align-self: right;
+    width: 100px;
+    height: 100px;
+    margin-left: 90%;
+    border-radius: 30px;
+    margin-top: 2%;
+  }
+
+ 
+
   .information {
     display: flex;
     flex-direction: column;
